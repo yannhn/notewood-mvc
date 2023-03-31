@@ -1,7 +1,7 @@
 // install express
-const express = require("epxress");
+const express = require("express");
 const app = express();
-const PORT = 5000;
+const PORT = 8001;
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
