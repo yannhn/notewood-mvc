@@ -3,7 +3,7 @@ const moment = require("moment");
 require("mongoose-moment")(mongoose);
 const currentWeek = moment().format("w");
 
-const note = new mongoose.Schema({
+const noteSchema = new mongoose.Schema({
   headerInput: {
     type: String,
     required: true,
@@ -12,11 +12,13 @@ const note = new mongoose.Schema({
     type: String,
     required: true,
   },
-  tags: {
-    type: [String],
-  },
+  //   tags: {
+  //     type: [String],
+  //   },
   createdAt: {
     type: Date,
     default: currentWeek,
   },
 });
+
+module.exports = mongoose.Model("note", noteSchema, "notes");
