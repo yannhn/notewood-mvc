@@ -12,9 +12,9 @@ const noteSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  //   tags: {
-  //     type: [String],
-  //   },
+  tagInput: {
+    type: [String],
+  },
   weekNumber: {
     type: Number,
     default: currentWeek,

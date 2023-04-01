@@ -21,8 +21,9 @@
       <% notes.forEach(note => { %> <% if(note.weekNumber ===
       Number(currentWeek)) {%>
       <li>
-        <div><%= note.headerInput %></div>
-        <div><%= note.bodyInput %></div>
+        <div>TITLE: <%= note.headerInput %></div>
+        <div>BODY: <%= note.bodyInput %></div>
+        <div>TAGS: <%= note.tagInput %></div>
         <div><%= note.weekNumber %></div>
         <a href="">Edit</a>
         <a href="">Remove</a>

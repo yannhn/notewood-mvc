@@ -17,11 +17,12 @@ module.exports = {
     }
   },
   createNote: async (req, res) => {
+    console.log(req);
     const newNote = new Note({
       headerInput: req.body.headerInput,
       bodyInput: req.body.bodyInput,
       weekNumber: req.body.weekNumber,
-      tagInput: req.body.tagInput,
+      tagInput: req.body.tagInput.split(" "),
     });
     try {
       await newNote.save();
