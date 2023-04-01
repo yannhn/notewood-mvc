@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "nodemon server.js",
-    "build": "webpack"
+    "compile": "sass --watch --no-source-map public/styles/styles.scss public/styles/styles.css"
   },
   "repository": {
     "type": "git",
