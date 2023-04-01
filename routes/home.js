@@ -3,3 +3,7 @@ const router = express.Router();
 const homeController = require("../controllers/home");
 
 router.get("/", homeController.getIndex);
+
+router.post("/newNote", homeController.createNote);
+
+module.exports = router;

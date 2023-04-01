@@ -15,10 +15,10 @@ const noteSchema = new mongoose.Schema({
   //   tags: {
   //     type: [String],
   //   },
-  createdAt: {
-    type: Date,
+  weekNumber: {
+    type: Number,
     default: currentWeek,
   },
 });
 
-module.exports = mongoose.Model("note", noteSchema, "notes");
+module.exports = mongoose.model("note", noteSchema, "notes");

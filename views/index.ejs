@@ -8,14 +8,27 @@
   </head>
   <body>
     <h1>Here should be the week Number</h1>
-    <form action="" method="POST">
+    <form action="/newNote" method="POST">
       <label for="headerInput">Input header</label>
       <input type="text" id="headerInput" name="headerInput" />
       <label for="bodyInput">Input text</label>
       <textarea name="bodyInput" id="bodyInput" cols="30" rows="10"></textarea>
       <label for="tagInput">Input tags</label>
       <input type="text" id="tagInput" name="tagInput" />
-      <button type="submit"></button>
+      <button type="submit">submit</button>
     </form>
+    <ul>
+      <% notes.forEach(note => { %> <% if(note.weekNumber ===
+      Number(currentWeek)) {%>
+      <li>
+        <div><%= note.headerInput %></div>
+        <div><%= note.bodyInput %></div>
+        <div><%= note.weekNumber %></div>
+        <!-- <div><%= moment(note.weekNumber).format('w') %></div> -->
+        <a href="">Edit</a>
+        <a href="">Remove</a>
+      </li>
+      <% }}) %>
+    </ul>
   </body>
 </html>

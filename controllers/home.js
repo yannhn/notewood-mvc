@@ -1,11 +1,11 @@
-const Notes = require("../models/note");
+const Note = require("../models/note");
 const moment = require("moment");
 const currentWeek = moment().format("w");
 
 module.exports = {
   getIndex: async (req, res) => {
     try {
-      const notes = await Notes.find();
+      const notes = await Note.find();
 
       res.render("index.ejs", {
         notes: notes,
@@ -14,6 +14,22 @@ module.exports = {
       });
     } catch (err) {
       if (err) return res.status(500).send(err);
+    }
+  },
+  createNote: async (req, res) => {
+    const newNote = new Note({
+      headerInput: req.body.headerInput,
+      bodyInput: req.body.bodyInput,
+      weekNumber: req.body.weekNumber,
+      tagInput: req.body.tagInput,
+    });
+    try {
+      await newNote.save();
+      console.log(newNote);
+      res.redirect("/");
+    } catch (err) {
+      if (err) return res.status(500).send(err);
+      res.redirect("/");
     }
   },
 };
