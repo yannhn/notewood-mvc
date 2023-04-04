@@ -6,7 +6,7 @@
 
   <body>
     <%- include('./partials/header.ejs') %>
-
+    <h2><%=`Week ${currentWeek}` %></h2>
     <form action="/newNote" method="POST">
       <label for="headerInput">Input header</label>
       <input type="text" id="headerInput" name="headerInput" />
