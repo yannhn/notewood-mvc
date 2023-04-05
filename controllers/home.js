@@ -33,4 +33,13 @@ module.exports = {
       res.redirect("/");
     }
   },
+  deleteNote: async (req, res) => {
+    const id = req.params.id;
+    try {
+      await Note.findByIdAndDelete(id);
+      res.redirect("back");
+    } catch (err) {
+      if (err) return res.status(500).send(err);
+    }
+  },
 };

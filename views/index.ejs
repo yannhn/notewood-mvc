@@ -26,7 +26,7 @@
         <div>TAGS: <%= note.tagInput %></div>
         <div><%= note.weekNumber %></div>
         <a href="">Edit</a>
-        <a href="">Remove</a>
+        <a href="/remove/<%= note._id %>">Remove</a>
       </li>
       <% }}) %>
     </ul>
