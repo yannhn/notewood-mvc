@@ -15,21 +15,65 @@
       <label for="tagInput">Input tags</label>
       <input type="text" id="tagInput" name="tagInput" />
       <button type="submit">submit</button>
-      <button type="button" id="TESTBUTTON">TEST</button>
     </form>
     <ul>
       <% notes.forEach(note => { %> <% if(note.weekNumber ===
       Number(currentWeek)) {%>
-      <li>
+      <li data-id="<%= note._id %>">
         <div>TITLE: <%= note.headerInput %></div>
         <div>BODY: <%= note.bodyInput %></div>
         <div>TAGS: <%= note.tagInput %></div>
         <div><%= note.weekNumber %></div>
-        <a href="">Edit</a>
+        <button class="modal-button">Edit</button>
         <a href="/remove/<%= note._id %>">Remove</a>
+
+        <div class="modal">
+          <form action="/<%= note._id %>" method="POST">
+            <label for="headerInput">Input header</label>
+            <input type="text" id="headerInput" name="headerInput" />
+            <label for="bodyInput">Input text</label>
+            <textarea
+              name="bodyInput"
+              id="bodyInput"
+              cols="30"
+              rows="10"
+              placeholder="<%= note.bodyInput%>"
+            ></textarea>
+            <label for="tagInput">Input tags</label>
+            <input type="text" id="tagInput" name="tagInput" />
+            <button type="submit">submit</button>
+            <button type="button" class="close">cancel</button>
+          </form>
+        </div>
       </li>
+
       <% }}) %>
     </ul>
+    <section>
+      <ul>
+        <% notes.forEach(note => { %> <% if(note._id == idNote) { %>
+        <li>
+          <div>
+            <form action="/update/<%= note._id %>" method="POST">
+              <label for="headerInput">Input header</label>
+              <input type="text" id="headerInput" name="headerInput" />
+              <label for="bodyInput">Input text</label>
+              <textarea
+                name="bodyInput"
+                id="bodyInput"
+                cols="30"
+                rows="10"
+              ></textarea>
+              <label for="tagInput">Input tags</label>
+              <input type="text" id="tagInput" name="tagInput" />
+              <button type="submit">submit</button>
+              <a href="/">Cancel</a>
+            </form>
+          </div>
+        </li>
+        <% } %> <% }) %>
+      </ul>
+    </section>
     <%- include('./partials/footer.ejs') %>
   </body>
 </html>
