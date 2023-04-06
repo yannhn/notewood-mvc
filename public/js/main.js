@@ -6,40 +6,19 @@
 //   }
 // }
 
-const modalButton = document.querySelectorAll(".modal-button");
-const closeButton = document.querySelectorAll(".close");
-const modal = document.querySelectorAll(".modal");
+const openModalButton = document.querySelector(".open-modal");
+const closeModalButton = document.querySelector(".close-modal");
+const modal = document.querySelector(".modal");
 
-console.log("modalButton", modalButton);
-console.log("modalButton", closeButton);
 console.log("modal", modal);
 
-modalButton.forEach((item) => {
-  item.addEventListener("click", () => {
-    open(item.parentNode.dataset.id);
-  });
-});
+openModalButton.addEventListener("click", open);
+closeModalButton.addEventListener("click", close);
 
-closeButton.forEach((item) => {
-  item.addEventListener("click", () => {
-    close(item.parentNode.dataset.id);
-  });
-});
-
-// toggle force parameter class List einbauen
-
-function open(id) {
-  modal.forEach((item) => {
-    if (item.parentNode.dataset.id === id) {
-      item.style.display = "block";
-    }
-  });
+function open() {
+  modal.style.display = "block";
 }
 
-function close(id) {
-  modal.forEach((item) => {
-    if (item.parentNode.dataset.id === id) {
-      item.classList.add("hidden");
-    }
-  });
+function close() {
+  modal.style.display = "none";
 }

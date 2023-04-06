@@ -16,6 +16,27 @@
         <a href="/note/remove/<%= notes._id %>">Remove</a>
         <a href="/currentWeek">get back</a>
       </li>
+
+      <div class="modal">
+        <form action="/note/<%= notes._id %>?_method=PUT" method="POST">
+          <label for="headerInput">Input header</label>
+          <input type="text" id="headerInput" name="headerInput" placeholder="<%= notes.headerInput%>"/>
+          <label for="bodyInput">Input text</label>
+          <textarea
+            name="bodyInput"
+            id="bodyInput"
+            cols="30"
+            rows="10"
+            placeholder="<%= notes.bodyInput%>"
+          ></textarea>
+          <label for="tagInput">Input tags</label>
+          <input type="text" id="tagInput" name="tagInput" />
+          <button type="submit">submit</button>
+          <button type="button" class="close">cancel</button>
+        </form>
+      </div>
+    </li>
+
     </ul>
 
     <%- include('./partials/footer.ejs') %>

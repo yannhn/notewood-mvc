@@ -7,15 +7,24 @@
   <body>
     <%- include('./partials/header.ejs') %>
     <h2><%=`Week ${currentWeek}` %></h2>
-    <form action="/note/newNote" method="POST">
-      <label for="headerInput">Input header</label>
-      <input type="text" id="headerInput" name="headerInput" />
-      <label for="bodyInput">Input text</label>
-      <textarea name="bodyInput" id="bodyInput" cols="30" rows="10"></textarea>
-      <label for="tagInput">Input tags</label>
-      <input type="text" id="tagInput" name="tagInput" />
-      <button type="submit">submit</button>
-    </form>
+    <button type="button" class="open-modal">Add new note</button>
+    <div class="modal">
+      <form action="/note/newNote" method="POST">
+        <label for="headerInput">Input header</label>
+        <input type="text" id="headerInput" name="headerInput" />
+        <label for="bodyInput">Input text</label>
+        <textarea
+          name="bodyInput"
+          id="bodyInput"
+          cols="30"
+          rows="10"
+        ></textarea>
+        <label for="tagInput">Input tags</label>
+        <input type="text" id="tagInput" name="tagInput" />
+        <button type="submit">submit</button>
+        <button type="button" class="close-modal">close modal</button>
+      </form>
+    </div>
     <ul>
       <% notes.forEach(note => { %>
       <li>TAGS: <%= note.tagInput %></li>
@@ -31,54 +40,9 @@
         <div><%= note.weekNumber %></div>
         <a href="/note/<%= note._id%>">Go to note</a>
         <a href="/note/remove/<%= note._id %>">Remove</a>
-
-        <div class="modal">
-          <form action="/note/<%= note._id %>?_method=PUT" method="POST">
-            <label for="headerInput">Input header</label>
-            <input type="text" id="headerInput" name="headerInput" />
-            <label for="bodyInput">Input text</label>
-            <textarea
-              name="bodyInput"
-              id="bodyInput"
-              cols="30"
-              rows="10"
-              placeholder="<%= note.bodyInput%>"
-            ></textarea>
-            <label for="tagInput">Input tags</label>
-            <input type="text" id="tagInput" name="tagInput" />
-            <button type="submit">submit</button>
-            <button type="button" class="close">cancel</button>
-          </form>
-        </div>
       </li>
-
       <% }}) %>
     </ul>
-    <section>
-      <ul>
-        <% notes.forEach(note => { %> <% if(note._id == idNote) { %>
-        <li>
-          <div>
-            <form action="/update/<%= note._id %>" method="POST">
-              <label for="headerInput">Input header</label>
-              <input type="text" id="headerInput" name="headerInput" />
-              <label for="bodyInput">Input text</label>
-              <textarea
-                name="bodyInput"
-                id="bodyInput"
-                cols="30"
-                rows="10"
-              ></textarea>
-              <label for="tagInput">Input tags</label>
-              <input type="text" id="tagInput" name="tagInput" />
-              <button type="submit">submit</button>
-              <a href="/">Cancel</a>
-            </form>
-          </div>
-        </li>
-        <% } %> <% }) %>
-      </ul>
-    </section>
     <%- include('./partials/footer.ejs') %>
   </body>
 </html>
