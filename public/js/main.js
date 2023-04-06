@@ -10,8 +10,6 @@ const openModalButton = document.querySelector(".open-modal");
 const closeModalButton = document.querySelector(".close-modal");
 const modal = document.querySelector(".modal");
 
-console.log("modal", modal);
-
 openModalButton.addEventListener("click", open);
 closeModalButton.addEventListener("click", close);
 

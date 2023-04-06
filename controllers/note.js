@@ -17,6 +17,51 @@ module.exports = {
       if (err) return res.status(500).send(err);
     }
   },
+  getArchive: async (req, res) => {
+    const id = req.params.id;
+    try {
+      const notes = await Note.find();
+
+      const groupedEmails = notes.reduce((acc, curr) => {
+        const date = curr.weekNumber;
+        if (!acc[date]) {
+          acc[date] = [];
+        }
+        acc[date].push(curr);
+        return acc;
+      }, {});
+
+      console.log(groupedEmails);
+
+      //   Loop through grouped emails
+      const groupedEmailsArray = Object.keys(groupedEmails).map((key) => {
+        return {
+          date: key,
+          // Sort emails by email in alphabetical order
+          emails: groupedEmails[key].sort((a, b) => {
+            if (a.email < b.email) {
+              return -1;
+            }
+            if (a.email > b.email) {
+              return 1;
+            }
+            return 0;
+          }),
+        };
+      });
+
+      res.render("archive.ejs", {
+        notes: notes,
+        moment: moment,
+
+        idNote: id,
+        groupedEmailsArray,
+      });
+      console.log("NOTES:", notes);
+    } catch (err) {
+      if (err) return res.status(500).send(err);
+    }
+  },
   getNote: async (req, res) => {
     const id = req.params.id;
     try {
@@ -31,7 +76,7 @@ module.exports = {
     const newNote = new Note({
       headerInput: req.body.headerInput,
       bodyInput: req.body.bodyInput,
-      weekNumber: req.body.weekNumber,
+      weekNumber: moment(req.body.weekNumber).format("w"),
       tagInput: req.body.tagInput.split(" "),
     });
     try {
