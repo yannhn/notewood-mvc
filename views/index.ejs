@@ -5,75 +5,12 @@
   </head>
 
   <body>
-    <%- include('./partials/header.ejs') %>
-    <h2><%=`Week ${currentWeek}` %></h2>
-    <form action="/newNote" method="POST">
-      <label for="headerInput">Input header</label>
-      <input type="text" id="headerInput" name="headerInput" />
-      <label for="bodyInput">Input text</label>
-      <textarea name="bodyInput" id="bodyInput" cols="30" rows="10"></textarea>
-      <label for="tagInput">Input tags</label>
-      <input type="text" id="tagInput" name="tagInput" />
-      <button type="submit">submit</button>
-    </form>
-    <ul>
-      <% notes.forEach(note => { %> <% if(note.weekNumber ===
-      Number(currentWeek)) {%>
-      <li data-id="<%= note._id %>">
-        <div>TITLE: <%= note.headerInput %></div>
-        <div>BODY: <%= note.bodyInput %></div>
-        <div>TAGS: <%= note.tagInput %></div>
-        <div><%= note.weekNumber %></div>
-        <button class="modal-button">Edit</button>
-        <a href="/remove/<%= note._id %>">Remove</a>
-
-        <div class="modal">
-          <form action="/<%= note._id %>?_method=PUT" method="POST">
-            <label for="headerInput">Input header</label>
-            <input type="text" id="headerInput" name="headerInput" />
-            <label for="bodyInput">Input text</label>
-            <textarea
-              name="bodyInput"
-              id="bodyInput"
-              cols="30"
-              rows="10"
-              placeholder="<%= note.bodyInput%>"
-            ></textarea>
-            <label for="tagInput">Input tags</label>
-            <input type="text" id="tagInput" name="tagInput" />
-            <button type="submit">submit</button>
-            <button type="button" class="close">cancel</button>
-          </form>
-        </div>
-      </li>
-
-      <% }}) %>
-    </ul>
-    <section>
-      <ul>
-        <% notes.forEach(note => { %> <% if(note._id == idNote) { %>
-        <li>
-          <div>
-            <form action="/update/<%= note._id %>" method="POST">
-              <label for="headerInput">Input header</label>
-              <input type="text" id="headerInput" name="headerInput" />
-              <label for="bodyInput">Input text</label>
-              <textarea
-                name="bodyInput"
-                id="bodyInput"
-                cols="30"
-                rows="10"
-              ></textarea>
-              <label for="tagInput">Input tags</label>
-              <input type="text" id="tagInput" name="tagInput" />
-              <button type="submit">submit</button>
-              <a href="/">Cancel</a>
-            </form>
-          </div>
-        </li>
-        <% } %> <% }) %>
-      </ul>
-    </section>
+    <h1>Welcome to notewood</h1>
+    <a href="/currentWeek"> get to CurrentWeek</a>
+    <br />
+    <a href="/currentWeek"> Signup placeholder</a>
+    <br />
+    <a href="/currentWeek"> guest login placeholder</a>
     <%- include('./partials/footer.ejs') %>
   </body>
 </html>

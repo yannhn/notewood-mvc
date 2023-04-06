@@ -1,15 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const homeController = require("../controllers/home");
+const noteController = require("../controllers/note");
 
 router.get("/", homeController.getIndex);
 
-router.put("/:id", homeController.editNote);
-
-router.get("/remove/:id", homeController.deleteNote);
-
-router.post("/update/:id", homeController.updateNote);
-
-router.post("/newNote", homeController.createNote);
+router.get("/currentWeek", noteController.getCurrentWeek);
 
 module.exports = router;

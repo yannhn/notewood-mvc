@@ -11,6 +11,7 @@ connectDB();
 
 // choose routes
 const homeRoutes = require("./routes/home");
+const noteRoutes = require("./routes/note");
 
 //Use forms for put / delete
 app.use(methodOverride("_method"));
@@ -20,6 +21,7 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/", homeRoutes);
+app.use("/note", noteRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

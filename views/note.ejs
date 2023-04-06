@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./partials/head.ejs') %>
+  </head>
+
+  <body>
+    <%- include('./partials/header.ejs') %>
+    <ul>
+      <li data-id="<%= notes._id %>">
+        <div>TITLE: <%= notes.headerInput %></div>
+        <div>BODY: <%= notes.bodyInput %></div>
+        <div>TAGS: <%= notes.tagInput %></div>
+        <div><%= notes.weekNumber %></div>
+        <button class="modal-button">Edit</button>
+        <a href="/note/remove/<%= notes._id %>">Remove</a>
+        <a href="/currentWeek">get back</a>
+      </li>
+    </ul>
+
+    <%- include('./partials/footer.ejs') %>
+  </body>
+</html>
