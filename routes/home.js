@@ -4,7 +4,7 @@ const homeController = require("../controllers/home");
 
 router.get("/", homeController.getIndex);
 
-router.get("/:id", homeController.editNote);
+router.put("/:id", homeController.editNote);
 
 router.get("/remove/:id", homeController.deleteNote);
 

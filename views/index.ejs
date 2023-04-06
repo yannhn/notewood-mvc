@@ -28,7 +28,7 @@
         <a href="/remove/<%= note._id %>">Remove</a>
 
         <div class="modal">
-          <form action="/<%= note._id %>" method="POST">
+          <form action="/<%= note._id %>?_method=PUT" method="POST">
             <label for="headerInput">Input header</label>
             <input type="text" id="headerInput" name="headerInput" />
             <label for="bodyInput">Input text</label>

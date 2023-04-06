@@ -28,7 +28,7 @@ closeButton.forEach((item) => {
 
 // toggle force parameter class List einbauen
 
-function toggleVisibility(id) {
+function open(id) {
   modal.forEach((item) => {
     if (item.parentNode.dataset.id === id) {
       item.style.display = "block";
@@ -36,17 +36,10 @@ function toggleVisibility(id) {
   });
 }
 
-function open(id) {
-  modal.forEach((item) => {
-    if (item.parentNode.dataset.id === id) item.style.display = "block";
-  });
-}
-
 function close(id) {
   modal.forEach((item) => {
     if (item.parentNode.dataset.id === id) {
-      item.removeAttribute("style");
-      item.style.display = "none";
+      item.classList.add("hidden");
     }
   });
 }

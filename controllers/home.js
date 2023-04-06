@@ -34,17 +34,17 @@ module.exports = {
       res.redirect("/");
     }
   },
-  getEdit: async (req, res) => {
-    const id = req.params.id;
-    console.log(id);
+  // getEdit: async (req, res) => {
+  //   const id = req.params.id;
+  //   console.log(id);
 
-    try {
-      const notes = await Note.find();
-      res.render("index.ejs", { notes: notes, idNote: id });
-    } catch (err) {
-      if (err) return res.status(500).send(err);
-    }
-  },
+  //   try {
+  //     const notes = await Note.find();
+  //     res.render("index.ejs", { notes: notes, idNote: id });
+  //   } catch (err) {
+  //     if (err) return res.status(500).send(err);
+  //   }
+  // },
 
   editNote: async (req, res) => {
     const id = req.params.id;
@@ -53,22 +53,14 @@ module.exports = {
       const result = await Note.findByIdAndUpdate(id, {
         headerInput: req.body.headerInput,
         bodyInput: req.body.bodyInput,
-        weekNumber: req.body.weekNumber,
+        // weekNumber: req.body.weekNumber,
         tagInput: req.body.tagInput.split(" "),
       });
+      console.log("res:", result);
       res.redirect("back");
     } catch (err) {
       if (err) return res.status(500).send(err);
       res.redirect("back");
-    }
-  },
-  deleteNote: async (req, res) => {
-    const id = req.params.id;
-    try {
-      await Note.findByIdAndDelete(id);
-      res.redirect("back");
-    } catch (err) {
-      if (err) return res.status(500).send(err);
     }
   },
   updateNote: async (req, res) => {
@@ -83,6 +75,15 @@ module.exports = {
     } catch (err) {
       if (err) return res.status(500).send(err);
       res.redirect("back");
+    }
+  },
+  deleteNote: async (req, res) => {
+    const id = req.params.id;
+    try {
+      await Note.findByIdAndDelete(id);
+      res.redirect("back");
+    } catch (err) {
+      if (err) return res.status(500).send(err);
     }
   },
 };
