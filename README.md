@@ -10,3 +10,6 @@
 
 // TODO - STYLING
 // Hier noch einen Plan machen, wie das Ganze gestyled werden soll
+
+// TODO - search array
+// bei klick in array speichern

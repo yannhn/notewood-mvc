@@ -60,6 +60,7 @@ labelButton.forEach((label) => {
   tempArray.push(label.innerText);
   label.addEventListener("click", () => {
     console.log("CLICKED");
+    tempArray.push(label.innerText);
   });
 });
 
