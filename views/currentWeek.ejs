@@ -27,17 +27,24 @@
         <button type="button" class="close-modal">close modal</button>
       </form>
     </dialog>
-    <ul>
-      <li>TAGS: <% notes.forEach(note => { %> <%= note.tagInput %> <% }) %></li>
-    </ul>
-
-    <ul>
+    <fieldset class="filter-tags">
+      <legend>Click tags to search</legend>
+      <ul>
+        <li>
+          <% fullTagsArray.forEach(item => { %>
+          <label for="label-button" class="label-button"><%= item %></label> <%
+          }) %>
+          <input type="checkbox" id="label-button" />
+        </li>
+      </ul>
+    </fieldset>
+    <ul class="note-item">
       <% notes.forEach(note => { %> <% if(note.weekNumber ===
       Number(currentWeek)) {%>
-      <li data-id="<%= note._id %>">
-        <div>TITLE: <%= note.headerInput %></div>
-        <div>TAGS: <%= note.tagInput %></div>
-        <div><%= note.weekNumber %></div>
+      <li data-id="<%= note._id %>" class="single-note">
+        <span>TITLE: <%= note.headerInput %></span>
+        <p class="note-tags"><%= note.tagInput %></p>
+        <span><%= note.weekNumber %></span>
         <a href="/note/<%= note._id%>">Go to note</a>
         <a href="/note/remove/<%= note._id %>">Remove</a>
       </li>

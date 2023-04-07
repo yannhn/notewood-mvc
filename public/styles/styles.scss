@@ -1,1 +1,7 @@
 @use "./components/modal";
+@use "./components/note";
+@use "./components/label";
+
+.hidden {
+  display: none;
+}

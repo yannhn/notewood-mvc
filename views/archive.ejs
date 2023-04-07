@@ -7,35 +7,17 @@
   <body>
     <%- include('./partials/header.ejs') %>
 
-    <button type="button" class="open-modal">Add new note</button>
-    <dialog class="modal">
-      <form action="/note/newNote" method="POST">
-        <label for="headerInput">Input header</label>
-        <input type="text" id="headerInput" name="headerInput" />
-        <label for="bodyInput">Input text</label>
-        <textarea
-          name="bodyInput"
-          id="bodyInput"
-          cols="30"
-          rows="10"
-        ></textarea>
-        <label for="tagInput">Input tags</label>
-        <input type="text" id="tagInput" name="tagInput" />
-        <button type="submit">submit</button>
-        <button type="button" class="close-modal">close modal</button>
-      </form>
-    </dialog>
-
     <ul>
       <% groupedEmailsArray.forEach(note => { %>
 
       <h2><%= `Week ${note.date}` %></h2>
+      <h3><%= note.tagInput %></h3>
       <% for(let item of note.emails) { %>
-      <li data-id="<%= note._id %>">
-        <div>TITLE: <%= note.headerInput %></div>
-        <div>TAGS: <%= note.tagInput %></div>
-        <a href="/note/<%= note._id%>">Go to note</a>
-        <a href="/note/remove/<%= note._id %>">Remove</a>
+      <li data-id="<%= item._id %>">
+        <div>TITLE: <%= item.headerInput %></div>
+        <div>TAGS: <%= item.tagInput %></div>
+        <a href="/note/<%= item._id%>">Go to note</a>
+        <a href="/note/remove/<%= item._id %>">Remove</a>
       </li>
       <% }}) %>
     </ul>

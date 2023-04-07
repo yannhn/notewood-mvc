@@ -1,0 +1,11 @@
+.note-item {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  li {
+    max-width: fit-content;
+    border: 1px solid black;
+    margin: 1em;
+    padding: 1em;
+  }
+}

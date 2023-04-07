@@ -41,3 +41,39 @@ function ready(callback) {
 }
 
 ready(init);
+
+const tagInput = document.querySelector("#tagInput");
+
+tagInput.addEventListener("keyup", (event) => {
+  if (event.code === "Space") {
+    console.log("Space pressed");
+    console.log(event.target.value);
+  }
+});
+
+const labelButton = document.querySelectorAll(".label-button");
+
+let tempArray = [];
+
+labelButton.forEach((label) => {
+  console.log(label.innerText);
+  tempArray.push(label.innerText);
+  label.addEventListener("click", () => {
+    console.log("CLICKED");
+  });
+});
+
+console.log("tempArray:", tempArray);
+
+const noteTags = document.querySelectorAll(".note-tags");
+const singleNote = document.querySelector(".single-note");
+
+console.log(singleNote);
+
+noteTags.forEach((item) => {
+  if (tempArray.includes(item.innerText.split(","))) {
+    console.log("TEST");
+    singleNote.classList.add("hidden");
+  }
+  console.log("item.innerText:", item.innerText.split(","));
+});

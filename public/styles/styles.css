@@ -21,3 +21,43 @@
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
+.note-item {
+  list-style: none;
+  padding: 0;
+  display: flex;
+}
+.note-item li {
+  max-width: fit-content;
+  border: 1px solid black;
+  margin: 1em;
+  padding: 1em;
+}
+
+.filter-tags {
+  margin: 1em;
+}
+.filter-tags ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+}
+.filter-tags ul li {
+  margin: 0 1em;
+}
+.filter-tags ul li label {
+  padding: 0.4em 1em;
+  border: 1px solid black;
+  cursor: pointer;
+}
+.filter-tags ul li label:hover {
+  background: black;
+  color: white;
+}
+.filter-tags ul li input {
+  display: none;
+}
+
+.hidden {
+  display: none;
+}

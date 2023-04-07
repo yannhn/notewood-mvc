@@ -7,11 +7,22 @@ module.exports = {
     const id = req.params.id;
     try {
       const notes = await Note.find();
+
+      const tagArray = [];
+      notes.forEach((note) => {
+        if (note.weekNumber === Number(currentWeek)) {
+          tagArray.push(note.tagInput);
+        }
+      });
+
+      const fullTagsArray = [...new Set(tagArray.flat())];
+
       res.render("currentWeek.ejs", {
         notes: notes,
         moment: moment,
         currentWeek: currentWeek,
         idNote: id,
+        fullTagsArray,
       });
     } catch (err) {
       if (err) return res.status(500).send(err);
@@ -53,8 +64,8 @@ module.exports = {
       res.render("archive.ejs", {
         notes: notes,
         moment: moment,
-
         idNote: id,
+        // weekNumber: moment(req.body.weekNumber).format("w"),
         groupedEmailsArray,
       });
       console.log("NOTES:", notes);
@@ -73,12 +84,16 @@ module.exports = {
   },
   createNote: async (req, res) => {
     console.log(req);
+
     const newNote = new Note({
       headerInput: req.body.headerInput,
       bodyInput: req.body.bodyInput,
       weekNumber: moment(req.body.weekNumber).format("w"),
-      tagInput: req.body.tagInput.split(" "),
+      tagInput: req.body.tagInput
+        .split(" ")
+        .filter((substring) => substring !== ""),
     });
+
     try {
       await newNote.save();
       console.log(newNote);
