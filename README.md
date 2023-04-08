@@ -13,3 +13,6 @@
 
 // TODO - search array
 // bei klick in array speichern
+// filter auch mit Text einbauen
+
+// FIXME - moment js macht momentan noch den Sonntag zum ersten Wochentag

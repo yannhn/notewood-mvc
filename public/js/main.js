@@ -1,36 +1,4 @@
-class Modal {
-  constructor() {
-    this._openModalButton = document.querySelector(".open-modal");
-    this._closeModalButton = document.querySelector(".close-modal");
-    this._modal = document.querySelector(".modal");
-    this.addEventListeners();
-  }
-
-  addEventListeners() {
-    this._openModalButton.addEventListener("click", this.open.bind(this));
-    this._closeModalButton.addEventListener("click", this.close.bind(this));
-    window.addEventListener("click", this.outsideClick.bind(this));
-  }
-
-  open() {
-    this._modal.style.display = "block";
-  }
-
-  close() {
-    this._modal.style.display = "none";
-  }
-
-  outsideClick(event) {
-    if (event.target === this._modal) {
-      this.close();
-    }
-  }
-}
-
-function init() {
-  const modal = new Modal();
-  return modal;
-}
+import * as Modal from "./components/modal.js";
 
 function ready(callback) {
   if (document.readyState === "loading") {
@@ -38,6 +6,10 @@ function ready(callback) {
   } else {
     callback();
   }
+}
+
+function init() {
+  return Modal.modal;
 }
 
 ready(init);
@@ -51,30 +23,70 @@ tagInput.addEventListener("keyup", (event) => {
   }
 });
 
-const labelButton = document.querySelectorAll(".label-button");
+const filterButton = document.querySelectorAll(".label-button");
 
-let tempArray = [];
+function getFilterArray() {
+  let tempArray = [];
 
-labelButton.forEach((label) => {
-  console.log(label.innerText);
-  tempArray.push(label.innerText);
-  label.addEventListener("click", () => {
-    console.log("CLICKED");
-    tempArray.push(label.innerText);
+  filterButton.forEach((label) => {
+    console.log(label.innerText);
+    label.addEventListener("click", () => {
+      console.log("CLICKED");
+      tempArray.push(label.innerText);
+      console.log("tempArray:", tempArray);
+    });
   });
-});
 
-console.log("tempArray:", tempArray);
+  return tempArray;
+}
+
+console.log(getFilterArray());
+
+// const filteredArray = getFilterArray();
 
 const noteTags = document.querySelectorAll(".note-tags");
 const singleNote = document.querySelector(".single-note");
 
 console.log(singleNote);
 
-noteTags.forEach((item) => {
-  if (tempArray.includes(item.innerText.split(","))) {
-    console.log("TEST");
-    singleNote.classList.add("hidden");
-  }
-  console.log("item.innerText:", item.innerText.split(","));
+// noteTags.forEach((item) => {
+//   if (filteredArray.includes(item.innerText.split(","))) {
+//     console.log("TEST");
+//     singleNote.classList.add("hidden");
+//   }
+//   console.log("item.innerText:", item.innerText.split(","));
+// });
+
+// build search object
+// check if search object includes stuff
+const searchForm = document.querySelector(".search-form");
+console.log(searchForm);
+
+searchForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  console.log("SUBMIT");
+  const formData = new FormData(searchForm);
+  console.log(formData);
 });
+
+export function includesAll(str, arr) {
+  for (const element of arr) {
+    if (!str.includes(element)) {
+      return false;
+    }
+  }
+  return true;
+}
+
+export function createStringFilter(data, searchObject) {
+  let searchTerm = searchObject.search;
+  let searchSplit = searchTerm.toLowerCase().split(" ");
+
+  searchSplit = searchSplit.filter((substring) => substring !== "");
+
+  return data.filter((obj) => {
+    let searchTarget = `${obj.title} ${obj.company}`;
+
+    return includesAll(searchTarget.toLowerCase(), searchSplit);
+  });
+}

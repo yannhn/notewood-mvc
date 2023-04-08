@@ -2,7 +2,7 @@
 const express = require("express");
 const connectDB = require("./config/database");
 const app = express();
-const PORT = 8004;
+const PORT = 8006;
 const methodOverride = require("method-override");
 
 require("dotenv").config({ path: "./config/.env" });

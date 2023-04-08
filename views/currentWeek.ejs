@@ -27,17 +27,29 @@
         <button type="button" class="close-modal">close modal</button>
       </form>
     </dialog>
-    <fieldset class="filter-tags">
-      <legend>Click tags to search</legend>
-      <ul>
-        <li>
-          <% fullTagsArray.forEach(item => { %>
-          <label for="label-button" class="label-button"><%= item %></label> <%
-          }) %>
-          <input type="checkbox" id="label-button" />
-        </li>
-      </ul>
-    </fieldset>
+    <form class="search-form">
+      <label for="search-input">Text search:</label>
+      <input type="text" id="search-input" name="search-input" />
+      <fieldset class="filter-tags">
+        <legend>Click tags to search</legend>
+        <ul>
+          <li>
+            <% fullTagsArray.forEach(item => { %>
+            <label for="label-button" class="label-button" value="<%= item %>"
+              ><%= item %></label
+            >
+            <input
+              type="checkbox"
+              id="label-button"
+              name="tags"
+              value="<%= item %>"
+            />
+            <% }) %>
+          </li>
+        </ul>
+      </fieldset>
+      <button type="submit">SUBMIT?</button>
+    </form>
     <ul class="note-item">
       <% notes.forEach(note => { %> <% if(note.weekNumber ===
       Number(currentWeek)) {%>
