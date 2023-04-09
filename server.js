@@ -4,7 +4,7 @@ const connectDB = require("./config/database");
 const app = express();
 const PORT = 8006;
 const methodOverride = require("method-override");
-
+const Note = require("./models/note");
 require("dotenv").config({ path: "./config/.env" });
 
 connectDB();

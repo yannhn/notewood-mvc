@@ -14,79 +14,68 @@ function init() {
 
 ready(init);
 
-const tagInput = document.querySelector("#tagInput");
+// const tagInput = document.querySelector("#tagInput");
+// const filterButton = document.querySelectorAll(".label-button");
+// const filterCheckbox = document.querySelectorAll(".filter-checkbox");
+// const noteTags = document.querySelectorAll(".note-tags");
+// const singleNote = document.querySelectorAll(".single-note");
+// const searchForm = document.querySelector(".search-form");
 
-tagInput.addEventListener("keyup", (event) => {
-  if (event.code === "Space") {
-    console.log("Space pressed");
-    console.log(event.target.value);
-  }
-});
-
-const filterButton = document.querySelectorAll(".label-button");
-
-function getFilterArray() {
-  let tempArray = [];
-
-  filterButton.forEach((label) => {
-    console.log(label.innerText);
-    label.addEventListener("click", () => {
-      console.log("CLICKED");
-      tempArray.push(label.innerText);
-      console.log("tempArray:", tempArray);
-    });
-  });
-
-  return tempArray;
-}
-
-console.log(getFilterArray());
-
-// const filteredArray = getFilterArray();
-
-const noteTags = document.querySelectorAll(".note-tags");
-const singleNote = document.querySelector(".single-note");
-
-console.log(singleNote);
-
-// noteTags.forEach((item) => {
-//   if (filteredArray.includes(item.innerText.split(","))) {
-//     console.log("TEST");
-//     singleNote.classList.add("hidden");
-//   }
-//   console.log("item.innerText:", item.innerText.split(","));
+// filterCheckbox.forEach((checkbox) => {
+//   console.log("filterCheckbox", checkbox.value);
 // });
 
-// build search object
-// check if search object includes stuff
-const searchForm = document.querySelector(".search-form");
-console.log(searchForm);
+// tagInput.addEventListener("keyup", (event) => {
+//   if (event.code === "Space") {
+//     console.log("Space pressed");
+//     console.log(event.target.value);
+//   }
+// });
 
-searchForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-  console.log("SUBMIT");
-  const formData = new FormData(searchForm);
-  console.log(formData);
-});
+// console.log("noteTags", noteTags);
+// console.log("singleNote", singleNote);
 
-export function includesAll(str, arr) {
-  for (const element of arr) {
-    if (!str.includes(element)) {
-      return false;
-    }
-  }
-  return true;
-}
+// function getFilterTags() {
+//   let tempArray = [];
 
-export function createStringFilter(data, searchObject) {
-  let searchTerm = searchObject.search;
-  let searchSplit = searchTerm.toLowerCase().split(" ");
+//   filterButton.forEach((label) => {
+//     label.addEventListener("click", () => {
+//       label.classList.toggle("active");
 
-  searchSplit = searchSplit.filter((substring) => substring !== "");
+//       if (label.classList.contains("active")) {
+//         tempArray.push(label.innerText);
+//       } else if (
+//         !label.classList.contains("active") &&
+//         tempArray.includes(label.innerText)
+//       ) {
+//         tempArray.splice(tempArray.indexOf(label.innerText), 1);
+//       }
+//       console.log("tempArray:", tempArray);
 
-  return data.filter((obj) => {
-    let searchTarget = `${obj.title} ${obj.company}`;
+//     });
 
-    return includesAll(searchTarget.toLowerCase(), searchSplit);
-  });
-}
+//   });
+
+//   console.log("tempArray2:", tempArray);
+//   return tempArray;
+// }
+
+// console.log(getFilterTags());
+
+// // get tag values from input
+// searchForm.addEventListener("change", (event) => {
+//   event.preventDefault();
+//   console.log("SUBMIT");
+
+//   const formData = new FormData(searchForm);
+//   console.log(formData.getAll("searchTags"));
+
+//   let newSearchObject = {};
+
+//   formData.append("tags", JSON.stringify(tagInput.value));
+
+//   newSearchObject.tagInput = formData.getAll(JSON.stringify(tagInput.value));
+//   // console.log(formData);
+
+//   console.log("newSearchObject:", newSearchObject);
+// });

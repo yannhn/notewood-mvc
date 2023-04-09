@@ -58,6 +58,11 @@
   display: none;
 }
 
+.active {
+  background: black;
+  color: white;
+}
+
 .hidden {
   display: none;
 }

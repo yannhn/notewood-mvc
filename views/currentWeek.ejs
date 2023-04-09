@@ -27,9 +27,7 @@
         <button type="button" class="close-modal">close modal</button>
       </form>
     </dialog>
-    <form class="search-form">
-      <label for="search-input">Text search:</label>
-      <input type="text" id="search-input" name="search-input" />
+    <form class="search-form" method="POST">
       <fieldset class="filter-tags">
         <legend>Click tags to search</legend>
         <ul>
@@ -41,20 +39,20 @@
             <input
               type="checkbox"
               id="label-button"
-              name="tags"
+              class="filter-checkbox"
+              name="searchTags"
               value="<%= item %>"
             />
             <% }) %>
           </li>
         </ul>
       </fieldset>
-      <button type="submit">SUBMIT?</button>
     </form>
     <ul class="note-item">
       <% notes.forEach(note => { %> <% if(note.weekNumber ===
       Number(currentWeek)) {%>
       <li data-id="<%= note._id %>" class="single-note">
-        <span>TITLE: <%= note.headerInput %></span>
+        <span class="note-title"><%= note.headerInput %></span>
         <p class="note-tags"><%= note.tagInput %></p>
         <span><%= note.weekNumber %></span>
         <a href="/note/<%= note._id%>">Go to note</a>
