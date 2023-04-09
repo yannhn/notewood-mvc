@@ -1,5 +1,12 @@
 const Note = require("../models/note");
 const moment = require("moment");
+
+moment.updateLocale("en", {
+  week: {
+    dow: 1,
+  },
+});
+
 const currentWeek = moment().format("w");
 
 module.exports = {

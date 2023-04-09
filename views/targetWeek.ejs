@@ -7,7 +7,7 @@
   <body>
     <%- include('./partials/header.ejs') %>
     <h2><%=`Week ${week}` %></h2>
-    <button type="button" class="open-modal">Add new note</button>
+    <!-- <button type="button" class="open-modal">Add new note</button>
     <dialog class="modal">
       <form action="/note/newNote" method="POST">
         <label for="headerInput">Input header</label>
@@ -26,13 +26,14 @@
         <button type="submit">submit</button>
         <button type="button" class="close-modal">close modal</button>
       </form>
-    </dialog>
+    </dialog> -->
+    <% if(fullTagsArray.length > 0) {%>
     <form class="search-form" method="POST">
       <fieldset class="filter-tags">
         <legend>Click tags to search</legend>
         <ul>
           <li>
-            <% fullTagsArray.forEach(item => { %>
+            <%fullTagsArray.forEach(item => { %>
             <label for="label-button" class="label-button" value="<%= item %>"
               ><%= item %></label
             >
@@ -43,7 +44,7 @@
               name="searchTags"
               value="<%= item %>"
             />
-            <% }) %>
+            <% })} %>
           </li>
         </ul>
       </fieldset>
