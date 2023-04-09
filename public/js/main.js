@@ -9,6 +9,7 @@ function ready(callback) {
 }
 
 function init() {
+  console.log("READY");
   return Modal.modal;
 }
 
