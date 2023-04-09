@@ -16,6 +16,7 @@ module.exports = {
       });
 
       const fullTagsArray = [...new Set(tagArray.flat())];
+      console.log(notes);
 
       res.render("currentWeek.ejs", {
         notes: notes,
@@ -28,6 +29,39 @@ module.exports = {
       if (err) return res.status(500).send(err);
     }
   },
+
+  getTargetWeek: async (req, res) => {
+    // const week = moment(req.body.weekNumber).format("w");
+
+    const id = req.params.id;
+    const week = req.params.week;
+
+    try {
+      const notes = await Note.find();
+
+      const tagArray = [];
+      notes.forEach((note) => {
+        if (note.weekNumber === Number(week)) {
+          tagArray.push(note.tagInput);
+        }
+      });
+
+      const fullTagsArray = [...new Set(tagArray.flat())];
+
+      res.render("targetWeek.ejs", {
+        notes: notes,
+        moment: moment,
+        idNote: id,
+        targetWeek: moment(req.body.weekNumber).format("w"),
+        week: week,
+        fullTagsArray,
+      });
+      console.log("NOTES:", notes);
+    } catch (err) {
+      if (err) return res.status(500).send(err);
+    }
+  },
+
   getArchive: async (req, res) => {
     const id = req.params.id;
     try {

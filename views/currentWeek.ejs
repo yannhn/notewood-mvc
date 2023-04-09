@@ -53,7 +53,7 @@
       Number(currentWeek)) {%>
       <li data-id="<%= note._id %>" class="single-note">
         <span class="note-title"><%= note.headerInput %></span>
-        <p class="note-tags"><%= note.tagInput %></p>
+        <p class="note-tags"><%= JSON.stringify(note.tagInput) %></p>
         <span><%= note.weekNumber %></span>
         <a href="/note/<%= note._id%>">Go to note</a>
         <a href="/note/remove/<%= note._id %>">Remove</a>

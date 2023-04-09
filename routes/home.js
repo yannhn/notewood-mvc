@@ -7,6 +7,8 @@ router.get("/", homeController.getIndex);
 
 router.get("/currentWeek", noteController.getCurrentWeek);
 
+router.get("/targetWeek/:week", noteController.getTargetWeek);
+
 router.get("/archive", noteController.getArchive);
 
 module.exports = router;
