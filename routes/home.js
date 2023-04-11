@@ -5,6 +5,8 @@ const noteController = require("../controllers/note");
 
 router.get("/", homeController.getIndex);
 
+// router.get("/", homeController.getPreview);
+
 router.get("/currentWeek", noteController.getCurrentWeek);
 
 router.get("/targetWeek/:week", noteController.getTargetWeek);
