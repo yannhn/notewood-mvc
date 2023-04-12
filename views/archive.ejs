@@ -9,11 +9,11 @@
     currentWeek}) %>
 
     <ul>
-      <% groupedEmailsArray.forEach(note => { %>
+      <% groupedNotesArray.forEach(note => { %>
 
       <h2><%= `Week ${note.date}` %></h2>
       <h3><%= note.tagInput %></h3>
-      <% for(let item of note.emails) { %>
+      <% for(let item of note.notes) { %>
       <li data-id="<%= item._id %>">
         <div>TITLE: <%= item.headerInput %></div>
         <div>TAGS: <%= item.tagInput %></div>

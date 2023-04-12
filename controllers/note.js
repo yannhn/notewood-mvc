@@ -29,7 +29,6 @@ module.exports = {
       });
 
       const fullTagsArray = [...new Set(tagArray.flat())];
-      console.log(notes);
 
       res.render("currentWeek.ejs", {
         notes: notes,
@@ -72,7 +71,6 @@ module.exports = {
         yearWeek,
         currentWeek,
       });
-      console.log("NOTES:", notes);
     } catch (err) {
       if (err) return res.status(500).send(err);
     }
@@ -83,7 +81,7 @@ module.exports = {
     try {
       const notes = await Note.find();
 
-      const groupedEmails = notes.reduce((acc, curr) => {
+      const groupedNotes = notes.reduce((acc, curr) => {
         const date = curr.weekNumber;
         if (!acc[date]) {
           acc[date] = [];
@@ -92,35 +90,41 @@ module.exports = {
         return acc;
       }, {});
 
-      console.log(groupedEmails);
-
       //   Loop through grouped emails
-      const groupedEmailsArray = Object.keys(groupedEmails).map((key) => {
-        return {
-          date: key,
-          // Sort emails by email in alphabetical order
-          emails: groupedEmails[key].sort((a, b) => {
-            if (a.email < b.email) {
-              return -1;
-            }
-            if (a.email > b.email) {
-              return 1;
-            }
-            return 0;
-          }),
-        };
-      });
+      const groupedNotesArray = Object.keys(groupedNotes)
+        .map((key) => {
+          return {
+            date: key,
+
+            notes: groupedNotes[key],
+            // .sort((a, b) => {
+            // console.log("groupedNotes[key]", groupedNotes[key]),
+            // console.log("A:", a.weekNumber);
+            // console.log("B", b.weekNumber);
+            // return b.weekNumber - a.weekNumber;
+            // if (a.weekNumber < b.weekNumber) {
+            //   return 1;
+            // }
+            // if (a.weekNumber > b.weekNumber) {
+            //   return -1;2
+            // }
+            // return 0;
+            // }),
+          };
+        })
+        .sort((a, b) => b.date - a.date);
+
+      // groupedNotesArray.sort((a, b) => b.date - a.date);
 
       res.render("archive.ejs", {
         notes: notes,
         moment: moment,
         idNote: id,
         // weekNumber: moment(req.body.weekNumber).format("w"),
-        groupedEmailsArray,
+        groupedNotesArray,
         yearWeek,
         currentWeek,
       });
-      console.log("NOTES:", notes);
     } catch (err) {
       if (err) return res.status(500).send(err);
     }
@@ -129,7 +133,7 @@ module.exports = {
     const id = req.params.id;
     try {
       const notes = await Note.findById(id);
-      res.render("note.ejs", { notes: notes });
+      res.render("note.ejs", { notes: notes, yearWeek, currentWeek });
     } catch (err) {
       if (err) return res.status(500).send(err);
     }
@@ -146,9 +150,11 @@ module.exports = {
         .filter((substring) => substring !== ""),
     });
 
+    console.log("tagInput", newNote);
+
     try {
       await newNote.save();
-      console.log(newNote);
+
       res.redirect("/currentWeek");
     } catch (err) {
       if (err) return res.status(500).send(err);

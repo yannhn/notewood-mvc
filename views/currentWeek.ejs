@@ -10,18 +10,28 @@
     <h2><%=`Week ${currentWeek}` %></h2>
     <button type="button" class="open-modal">Add new note</button>
     <dialog class="modal">
-      <form action="/note/newNote" method="POST">
+      <form action="/note/newNote" method="POST" class="noteForm">
         <label for="headerInput">Input header</label>
-        <input type="text" id="headerInput" name="headerInput" />
+        <input type="text" id="headerInput" name="headerInput" required />
         <label for="bodyInput">Input text</label>
         <textarea
           name="bodyInput"
           id="bodyInput"
           cols="30"
           rows="10"
+          required
         ></textarea>
-        <label for="tagInput">Press space to add tag</label>
-        <input type="text" id="tagInput" name="tagInput" />
+
+        <label for="tagInput" class="label">Press space to split tags</label>
+        <input
+          type="text"
+          id="tagInput"
+          name="tagInput"
+          placeholder="Add a tag..."
+          autocomplete="off"
+          class="tag-input"
+        />
+
         <label for="weekNumber">Input date</label>
         <input type="date" id="weekNumber" name="weekNumber" />
         <button type="submit">submit</button>
