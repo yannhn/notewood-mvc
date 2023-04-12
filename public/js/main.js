@@ -1,5 +1,5 @@
 import * as Modal from "./components/modal.js";
-// import * as VIEW from "./components/selectWeek.js";
+import * as View from "./components/View.js";
 
 function ready(callback) {
   if (document.readyState === "loading") {
@@ -15,17 +15,27 @@ function init() {
   return Modal.modal;
 }
 
-const selectViewButton = document.querySelector(".select-view-button");
-const selectView = document.querySelector(".select-view");
-
-selectViewButton.addEventListener("click", () => {
-  console.log("CLICKED");
-  selectView.classList.toggle("hidden");
-});
-
-console.log(selectViewButton);
+View.viewSelect;
 
 ready(init);
+
+// const openSelectView = document.querySelector(".select-view-button");
+// const closeSelectView = document.querySelector(".select-view-close");
+// const selectView = document.querySelector(".select-view");
+
+// openSelectView.addEventListener("click", () => {
+//   console.log("CLICKED");
+//   selectView.classList.toggle("hidden");
+//   // selectView.style.width = "250px";
+//   // selectView.style.width = "0";
+// });
+// if (selectView.classList.contains("hidden")) {
+//   selectView.style.width = "250px";
+// }
+
+// closeSelectView.addEventListener("click", () => {
+//   selectView.classList.toggle("hidden");
+// });
 
 // const tagInput = document.querySelector("#tagInput");
 // const filterButton = document.querySelectorAll(".label-button");

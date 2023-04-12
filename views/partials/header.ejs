@@ -6,11 +6,20 @@
   <hr />
   <button class="select-view-button">View Weeks</button>
   <div class="select-view">
-    <% yearWeek.forEach((year) => { %> <% if(year === Number(currentWeek)) { %>
-    <a href="/currentWeek"> <%= year %></a>
-    <% } else { %>
-    <a href="/targetWeek/<%= year %>"> <%= year %></a>
+    <ul>
+      <li><button type="button" class="select-view-close">CLOSE</button></li>
+      <li><a href="/">HOME</a></li>
+      <br />
+      <li><a href="/currentWeek">CURRENT</a></li>
+      <br />
+      <li><a href="/archive">ARCHIVE</a></li>
+      <% yearWeek.forEach((year) => { %> <% if(year === Number(currentWeek)) {
+      %>
+      <li><a href="/currentWeek"> <%= year %></a></li>
+      <% } else { %>
+      <li><a href="/targetWeek/<%= year %>"> <%= year %></a></li>
 
-    <% } %> <% }) %>
+      <% } %> <% }) %>
+    </ul>
   </div>
 </header>
