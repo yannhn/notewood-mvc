@@ -5,17 +5,14 @@
   </head>
 
   <body>
+    <%- include('./partials/header.ejs', {yearWeek: yearWeek, currentWeek:
+    currentWeek}) %>
     <h1>Welcome to notewood</h1>
     <a href="/currentWeek"> get to CurrentWeek</a>
     <br />
     <a href="/currentWeek"> Signup placeholder</a>
     <br />
     <a href="/currentWeek"> guest login placeholder</a>
-    <% yearWeek.forEach((year) => { %> <% if(year === Number(currentWeek)) { %>
-    <a href="/currentWeek"> <%= year %></a>
-    <% } else { %>
-    <a href="/targetWeek/<%= year %>"> <%= year %></a>
-
-    <% } %> <% }) %> <%- include('./partials/footer.ejs') %>
+    <%- include('./partials/footer.ejs') %>
   </body>
 </html>

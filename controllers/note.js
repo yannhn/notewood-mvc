@@ -7,6 +7,12 @@ moment.updateLocale("en", {
   },
 });
 
+let yearWeek = [];
+
+for (let i = 0; i <= 52; i++) {
+  yearWeek.push(i);
+}
+
 const currentWeek = moment().format("w");
 
 module.exports = {
@@ -31,6 +37,7 @@ module.exports = {
         currentWeek: currentWeek,
         idNote: id,
         fullTagsArray,
+        yearWeek,
       });
     } catch (err) {
       if (err) return res.status(500).send(err);
@@ -62,6 +69,8 @@ module.exports = {
         targetWeek: moment(req.body.weekNumber).format("w"),
         week: week,
         fullTagsArray,
+        yearWeek,
+        currentWeek,
       });
       console.log("NOTES:", notes);
     } catch (err) {
@@ -108,6 +117,8 @@ module.exports = {
         idNote: id,
         // weekNumber: moment(req.body.weekNumber).format("w"),
         groupedEmailsArray,
+        yearWeek,
+        currentWeek,
       });
       console.log("NOTES:", notes);
     } catch (err) {

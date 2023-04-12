@@ -7,12 +7,17 @@ class Modal {
   }
 
   addEventListeners() {
-    this._openModalButton.addEventListener("click", this.openModal.bind(this));
-    this._closeModalButton.addEventListener(
-      "click",
-      this.closeModal.bind(this)
-    );
-    window.addEventListener("click", this.outsideClick.bind(this));
+    if (this._openModalButton) {
+      this._openModalButton.addEventListener(
+        "click",
+        this.openModal.bind(this)
+      );
+      this._closeModalButton.addEventListener(
+        "click",
+        this.closeModal.bind(this)
+      );
+      window.addEventListener("click", this.outsideClick.bind(this));
+    }
   }
 
   openModal() {

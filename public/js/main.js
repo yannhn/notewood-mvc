@@ -1,4 +1,5 @@
 import * as Modal from "./components/modal.js";
+// import * as VIEW from "./components/selectWeek.js";
 
 function ready(callback) {
   if (document.readyState === "loading") {
@@ -10,8 +11,19 @@ function ready(callback) {
 
 function init() {
   console.log("READY");
+
   return Modal.modal;
 }
+
+const selectViewButton = document.querySelector(".select-view-button");
+const selectView = document.querySelector(".select-view");
+
+selectViewButton.addEventListener("click", () => {
+  console.log("CLICKED");
+  selectView.classList.toggle("hidden");
+});
+
+console.log(selectViewButton);
 
 ready(init);
 

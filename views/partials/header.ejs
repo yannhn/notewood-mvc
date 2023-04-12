@@ -4,4 +4,13 @@
   <a href="/currentWeek">CURRENT</a>
   <a href="/archive">ARCHIVE</a>
   <hr />
+  <button class="select-view-button">View Weeks</button>
+  <div class="select-view">
+    <% yearWeek.forEach((year) => { %> <% if(year === Number(currentWeek)) { %>
+    <a href="/currentWeek"> <%= year %></a>
+    <% } else { %>
+    <a href="/targetWeek/<%= year %>"> <%= year %></a>
+
+    <% } %> <% }) %>
+  </div>
 </header>

@@ -5,7 +5,8 @@
   </head>
 
   <body>
-    <%- include('./partials/header.ejs') %>
+    <%- include('./partials/header.ejs', {yearWeek: yearWeek, currentWeek:
+    currentWeek}) %>
     <h2><%=`Week ${currentWeek}` %></h2>
     <button type="button" class="open-modal">Add new note</button>
     <dialog class="modal">
