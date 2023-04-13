@@ -1,25 +1,33 @@
 <header>
-  <h1>LOGO</h1>
-  <a href="/">HOME</a>
-  <a href="/currentWeek">CURRENT</a>
-  <a href="/archive">ARCHIVE</a>
-  <hr />
-  <button class="select-view-button">View Weeks</button>
+  <div class="logo-container">
+    <a class="material-icons" href="/">forest</a>
+    <h1><a href="/">Notewood</a></h1>
+  </div>
+  <nav>
+    <button class="material-icons select-view-button">menu</button>
+  </nav>
   <div class="select-view">
     <ul>
-      <li><button type="button" class="select-view-close">CLOSE</button></li>
-      <li><a href="/">HOME</a></li>
-      <br />
-      <li><a href="/currentWeek">CURRENT</a></li>
-      <br />
-      <li><a href="/archive">ARCHIVE</a></li>
-      <% yearWeek.forEach((year) => { %> <% if(year === Number(currentWeek)) {
-      %>
-      <li><a href="/currentWeek"> <%= year %></a></li>
-      <% } else { %>
-      <li><a href="/targetWeek/<%= year %>"> <%= year %></a></li>
+      <div class="select-view-close">
+        <button type="button" class="material-icons select-view-close">
+          close
+        </button>
+      </div>
+      <div class="select-view-link">
+        <li><a href="/">Go to home</a></li>
+        <li><a href="/currentWeek">Go to current week</a></li>
+        <li><a href="/archive">Go to archive</a></li>
+      </div>
+      <div class="select-view-week">
+        <% yearWeek.forEach((year) => { %> <% if(year === Number(currentWeek)) {
+        %>
 
-      <% } %> <% }) %>
+        <li><a href="/currentWeek"> <%= year %></a></li>
+
+        <% } else { %>
+        <li><a href="/targetWeek/<%= year %>"> <%= year %></a></li>
+        <% } %> <% }) %>
+      </div>
     </ul>
   </div>
 </header>

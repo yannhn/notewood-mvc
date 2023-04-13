@@ -8,26 +8,6 @@
     <%- include('./partials/header.ejs', {yearWeek: yearWeek, currentWeek:
     currentWeek}) %>
     <h2><%=`Week ${week}` %></h2>
-    <!-- <button type="button" class="open-modal">Add new note</button>
-    <dialog class="modal">
-      <form action="/note/newNote" method="POST">
-        <label for="headerInput">Input header</label>
-        <input type="text" id="headerInput" name="headerInput" />
-        <label for="bodyInput">Input text</label>
-        <textarea
-          name="bodyInput"
-          id="bodyInput"
-          cols="30"
-          rows="10"
-        ></textarea>
-        <label for="tagInput">Input tags</label>
-        <input type="text" id="tagInput" name="tagInput" />
-        <label for="weekNumber">Input date</label>
-        <input type="date" id="weekNumber" name="weekNumber" />
-        <button type="submit">submit</button>
-        <button type="button" class="close-modal">close modal</button>
-      </form>
-    </dialog> -->
     <% if(fullTagsArray.length > 0) {%>
     <form class="search-form" method="POST">
       <fieldset class="filter-tags">
@@ -50,17 +30,18 @@
         </ul>
       </fieldset>
     </form>
-    <ul>
+
+    <ul class="note-item">
       <% notes.forEach(note => { %> <% if(note.weekNumber === Number(week)) {%>
-      <li data-id="<%= note._id %>">
-        <div>TITLE: <%= note.headerInput %></div>
-        <div>TAGS: <%= note.tagInput %></div>
-        <div><%= note.weekNumber %></div>
+      <li data-id="<%= note._id %>" class="single-note">
+        <a href="/note/remove/<%= note._id %>" class="material-icons">delete</a>
+        <div><%= note.headerInput %></div>
+        <div><%= JSON.stringify(note.tagInput) %></div>
         <a href="/note/<%= note._id%>">Go to note</a>
-        <a href="/note/remove/<%= note._id %>">Remove</a>
       </li>
       <% }}) %>
     </ul>
-    <%- include('./partials/footer.ejs') %>
+    <%- include('./partials/footer.ejs' , {yearWeek: yearWeek, currentWeek:
+    currentWeek, notes: notes, week}) %>
   </body>
 </html>

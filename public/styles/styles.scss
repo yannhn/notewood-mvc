@@ -1,83 +1,15 @@
 @use "./components/modal";
 @use "./components/note";
 @use "./components/label";
+@use "./components/drawer";
+@use "./base/reset";
 
+@use "./layouts/showWeek";
+@use "./layouts/header";
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
 .hidden {
   display: none;
-}
-
-.select-view {
-  height: 100%; /* 100% Full-height */
-  width: 0px; /* 0 width - change this with JavaScript */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Stay on top */
-  top: 0; /* Stay at the top */
-  right: 0;
-  background-color: #111; /* Black*/
-  overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 60px; /* Place content 60px from the top */
-  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
-  ul {
-    li {
-      a {
-        padding: 8px 8px 32px 32px;
-        margin: 1em 0;
-        text-decoration: none;
-        font-size: 16px;
-        color: #818181;
-        display: inline-block;
-        transition: 0.3s;
-      }
-    }
-  }
-}
-
-.input-wrap {
-  border: 1px #888 solid;
-  border-radius: 5px;
-  display: flex;
-  margin: 1.5em 0;
-
-  input {
-    background: none;
-    border: none;
-    padding: 0.5em;
-    width: 100%;
-
-    &:focus {
-      outline: none;
-    }
-  }
-  span {
-    margin: 0 0.5em 0 0.2em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #888;
-  }
-}
-
-.tag {
-  background: #f1f1f1;
-  border-radius: 5px;
-  padding: 0.2em 0.5em;
-  display: inline-block;
-  margin: 0.2em;
-
-  span {
-    font-size: 0.8em;
-    cursor: pointer;
-  }
-
-  b {
-    padding-bottom: 1em;
-  }
-}
-
-.tags {
-  margin-bottom: 1.5em;
 }

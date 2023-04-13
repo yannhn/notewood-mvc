@@ -1,12 +1,32 @@
+@use "../config/breakpoints";
+
 .note-item {
   list-style: none;
   padding: 0;
   display: flex;
-  flex-flow: row wrap;
+  flex-direction: column;
+  align-items: center;
+
+  @include breakpoints.desktop {
+    flex-flow: row wrap;
+  }
+
   li {
-    max-width: fit-content;
+    display: flex;
+    flex-direction: column;
     border: 1px solid black;
     margin: 1em;
     padding: 1em;
+
+    width: 90%;
+
+    @include breakpoints.desktop {
+      max-width: fit-content;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: red;
   }
 }

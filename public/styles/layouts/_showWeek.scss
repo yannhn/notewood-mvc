@@ -1,0 +1,15 @@
+.view-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #f2f2f2;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  h2 {
+    padding: 0;
+
+    align-items: center;
+    font-size: 3rem;
+  }
+}

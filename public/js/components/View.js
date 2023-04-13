@@ -14,10 +14,12 @@ class View {
 
   openView() {
     this._selectView.style.width = "250px";
+    this._selectView.style.borderLeft = "2px solid #262730";
   }
 
   closeView() {
     this._selectView.style.width = "0";
+    this._selectView.style.borderLeft = "none";
   }
 
   outsideClick(event) {

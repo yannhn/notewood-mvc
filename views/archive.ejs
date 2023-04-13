@@ -8,11 +8,12 @@
     <%- include('./partials/header.ejs', {yearWeek: yearWeek, currentWeek:
     currentWeek}) %>
 
-    <ul>
+    <ul class="note-item">
       <% groupedNotesArray.forEach(note => { %>
-
-      <h2><%= `Week ${note.date}` %></h2>
-      <h3><%= note.tagInput %></h3>
+      <div>
+        <h2><%= `Week ${note.date}` %></h2>
+        <h3><%= note.tagInput %></h3>
+      </div>
       <% for(let item of note.notes) { %>
       <li data-id="<%= item._id %>">
         <div>TITLE: <%= item.headerInput %></div>
@@ -22,6 +23,6 @@
       </li>
       <% }}) %>
     </ul>
-    <%- include('./partials/footer.ejs') %>
+    <%- include('./partials/footer.ejs' ) %>
   </body>
 </html>

@@ -1,0 +1,14 @@
+$mobile: "screen and (max-width: 640px)";
+$desktop: "screen and (min-width: 641px)";
+
+@mixin mobile() {
+  @media #{$mobile} {
+    @content;
+  }
+}
+
+@mixin desktop() {
+  @media #{$desktop} {
+    @content;
+  }
+}

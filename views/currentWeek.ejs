@@ -7,8 +7,10 @@
   <body>
     <%- include('./partials/header.ejs', {yearWeek: yearWeek, currentWeek:
     currentWeek}) %>
-    <h2><%=`Week ${currentWeek}` %></h2>
-    <button type="button" class="open-modal">Add new note</button>
+    <div class="view-header">
+      <h2><%=`Week ${currentWeek}` %></h2>
+      <button type="button" class="material-icons open-modal">add</button>
+    </div>
     <dialog class="modal">
       <form action="/note/newNote" method="POST" class="noteForm">
         <label for="headerInput">Input header</label>
@@ -59,18 +61,20 @@
         </ul>
       </fieldset>
     </form>
+
     <ul class="note-item">
       <% notes.forEach(note => { %> <% if(note.weekNumber ===
       Number(currentWeek)) {%>
       <li data-id="<%= note._id %>" class="single-note">
+        <a href="/note/remove/<%= note._id %>" class="material-icons">delete</a>
         <span class="note-title"><%= note.headerInput %></span>
         <p class="note-tags"><%= JSON.stringify(note.tagInput) %></p>
-        <span><%= note.weekNumber %></span>
+
         <a href="/note/<%= note._id%>">Go to note</a>
-        <a href="/note/remove/<%= note._id %>">Remove</a>
       </li>
       <% }}) %>
     </ul>
-    <%- include('./partials/footer.ejs') %>
+    <%- include('./partials/footer.ejs' , {yearWeek: yearWeek, currentWeek:
+    currentWeek, notes: notes}) %>
   </body>
 </html>
