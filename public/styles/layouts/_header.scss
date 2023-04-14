@@ -1,7 +1,15 @@
 header {
+  position: sticky;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background: white;
   display: flex;
   justify-content: space-between;
-  padding: 1em;
+  padding: 0 1em;
+  border-bottom: 1px solid black;
+  margin-bottom: 2em;
+  z-index: 1;
 
   .logo-container {
     display: flex;

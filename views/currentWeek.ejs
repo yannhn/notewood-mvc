@@ -7,10 +7,7 @@
   <body>
     <%- include('./partials/header.ejs', {yearWeek: yearWeek, currentWeek:
     currentWeek}) %>
-    <div class="view-header">
-      <h2><%=`Week ${currentWeek}` %></h2>
-      <button type="button" class="material-icons open-modal">add</button>
-    </div>
+
     <dialog class="modal">
       <form action="/note/newNote" method="POST" class="noteForm">
         <label for="headerInput">Input header</label>
@@ -74,7 +71,11 @@
       </li>
       <% }}) %>
     </ul>
-    <%- include('./partials/footer.ejs' , {yearWeek: yearWeek, currentWeek:
-    currentWeek, notes: notes}) %>
+    <footer>
+      <div class="view-header">
+        <h2><%=`Week ${currentWeek}` %></h2>
+        <button type="button" class="material-icons open-modal">add</button>
+      </div>
+    </footer>
   </body>
 </html>

@@ -2,10 +2,15 @@
 @use "./components/note";
 @use "./components/label";
 @use "./components/drawer";
+@use "./components/detailNote";
+
 @use "./base/reset";
 
-@use "./layouts/showWeek";
 @use "./layouts/header";
+@use "./layouts/footer";
+@use "./layouts/archive";
+@use "./layouts/index";
+
 body {
   font-family: Arial, Helvetica, sans-serif;
 }

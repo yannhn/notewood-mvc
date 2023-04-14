@@ -1,0 +1,23 @@
+footer {
+  position: sticky;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: white;
+  margin-top: 2em;
+
+  .view-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid black;
+    margin: 0;
+    padding: 0 1em;
+
+    h2 {
+      padding: 0;
+      align-items: center;
+      font-size: 2rem;
+    }
+  }
+}

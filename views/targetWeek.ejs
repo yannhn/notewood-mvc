@@ -6,9 +6,7 @@
 
   <body>
     <%- include('./partials/header.ejs', {yearWeek: yearWeek, currentWeek:
-    currentWeek}) %>
-    <h2><%=`Week ${week}` %></h2>
-    <% if(fullTagsArray.length > 0) {%>
+    currentWeek}) %> <% if(fullTagsArray.length > 0) {%>
     <form class="search-form" method="POST">
       <fieldset class="filter-tags">
         <legend>Click tags to search</legend>
@@ -41,7 +39,10 @@
       </li>
       <% }}) %>
     </ul>
-    <%- include('./partials/footer.ejs' , {yearWeek: yearWeek, currentWeek:
-    currentWeek, notes: notes, week}) %>
+    <footer>
+      <div class="view-header">
+        <h2><%=`Week ${week}` %></h2>
+      </div>
+    </footer>
   </body>
 </html>

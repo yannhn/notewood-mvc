@@ -5,14 +5,21 @@
   </head>
 
   <body>
-    <%- include('./partials/header.ejs', {yearWeek: yearWeek, currentWeek:
-    currentWeek}) %>
-    <h1>Welcome to notewood</h1>
-    <a href="/currentWeek"> get to CurrentWeek</a>
-    <br />
-    <a href="/currentWeek"> Signup placeholder</a>
-    <br />
-    <a href="/currentWeek"> guest login placeholder</a>
-    <%- include('./partials/footer.ejs') %>
+    <div class="index">
+      <div class="index-container">
+        <div class="index-logo-container">
+          <a class="material-icons" href="/">forest</a>
+          <h1><a href="/">Notewood</a></h1>
+        </div>
+        <div class="index-link">
+          <a href="/currentWeek"> get to CurrentWeek</a>
+
+          <a href="/currentWeek"> Signup placeholder</a>
+
+          <a href="/currentWeek"> guest login placeholder</a>
+          <a href="/currentWeek"> About</a>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

@@ -7,17 +7,25 @@
   <body>
     <%- include('./partials/header.ejs', {yearWeek: yearWeek, currentWeek:
     currentWeek}) %>
-    <ul>
-      <li data-id="<%= notes._id %>">
-        <div>TITLE: <%= notes.headerInput %></div>
-        <div>BODY: <%= notes.bodyInput %></div>
-        <div>TAGS: <%= notes.tagInput %></div>
-        <div><%= notes.weekNumber %></div>
-        <button class="open-modal">Edit</button>
-        <a href="/note/remove/<%= notes._id %>">Remove</a>
-        <a href="/currentWeek">get back</a>
-      </li>
-    </ul>
+
+    <div data-id="<%= notes._id %>" class="detail-note">
+      <h3 class="detail-note-title"><%= notes.headerInput %></h3>
+      <p class="detail-body"><%= notes.bodyInput %></p>
+      <ul class="detail-tags">
+        <% notes.tagInput.forEach((tag) => { %>
+        <li class="detail-note-single-tag"><%= tag %></li>
+        <% }) %>
+      </ul>
+      <!-- <button class="open-modal">Edit</button> -->
+      <div class="detail-note-options">
+        <button class="material-icons open-modal">edit</button>
+        <a href="/note/remove/<%= notes._id %>" class="material-icons"
+          >delete</a
+        >
+        <a href="/currentWeek">go to current Week</a>
+      </div>
+    </div>
+
     <dialog class="modal">
       <form action="/note/<%= notes._id %>?_method=PUT" method="POST">
         <label for="headerInput">Input header</label>
@@ -41,7 +49,10 @@
         <button type="button" class="close-modal">cancel</button>
       </form>
     </dialog>
-
-    <%- include('./partials/footer.ejs') %>
+    <footer>
+      <div class="view-header">
+        <h2><%=`Week ${currentWeek}` %></h2>
+      </div>
+    </footer>
   </body>
 </html>
