@@ -19,5 +19,14 @@ footer {
       align-items: center;
       font-size: 2rem;
     }
+
+    button {
+      background: #262730;
+      border: none;
+      color: white;
+      border-radius: 5px;
+      padding: 0.2em 0.6em;
+      cursor: pointer;
+    }
   }
 }
