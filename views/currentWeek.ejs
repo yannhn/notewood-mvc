@@ -66,6 +66,11 @@
         <a href="/note/remove/<%= note._id %>" class="material-icons">delete</a>
         <span class="note-title"><%= note.headerInput %></span>
         <p class="note-tags"><%= JSON.stringify(note.tagInput) %></p>
+        <ul>
+          <% note.tagInput.forEach(tag => { %>
+          <li><%= tag%></li>
+          <%}) %>
+        </ul>
 
         <a href="/note/<%= note._id%>">Go to note</a>
       </li>

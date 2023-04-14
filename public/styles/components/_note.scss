@@ -7,6 +7,10 @@
   flex-direction: column;
   align-items: center;
 
+  span {
+    font-weight: bold;
+  }
+
   @include breakpoints.desktop {
     flex-flow: row wrap;
   }
