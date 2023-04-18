@@ -8,7 +8,7 @@
     <%- include('./partials/header.ejs', {yearWeek: yearWeek, currentWeek:
     currentWeek}) %>
 
-    <div data-id="<%= notes._id %>" class="detail-note">
+    <section data-id="<%= notes._id %>" class="detail-note">
       <h3 class="detail-note-title"><%= notes.headerInput %></h3>
       <p class="detail-body"><%= notes.bodyInput %></p>
       <ul class="detail-tags">
@@ -24,7 +24,7 @@
         >
         <a href="/currentWeek">go to current Week</a>
       </div>
-    </div>
+    </section>
 
     <dialog class="modal">
       <form action="/note/<%= notes._id %>?_method=PUT" method="POST">

@@ -10,6 +10,7 @@
 
     <dialog class="modal">
       <form action="/note/newNote" method="POST" class="noteForm">
+        <button type="button" class="material-icons close-modal">close</button>
         <label for="headerInput">Input header</label>
         <input type="text" id="headerInput" name="headerInput" required />
         <label for="bodyInput">Input text</label>
@@ -34,7 +35,6 @@
         <label for="weekNumber">Input date</label>
         <input type="date" id="weekNumber" name="weekNumber" />
         <button type="submit">submit</button>
-        <button type="button" class="close-modal">close modal</button>
       </form>
     </dialog>
     <form class="search-form" method="POST">
@@ -58,24 +58,31 @@
         </ul>
       </fieldset>
     </form>
-
-    <ul class="note-item">
-      <% notes.forEach(note => { %> <% if(note.weekNumber ===
-      Number(currentWeek)) {%>
-      <li data-id="<%= note._id %>" class="single-note">
-        <a href="/note/remove/<%= note._id %>" class="material-icons">delete</a>
-        <span class="note-title"><%= note.headerInput %></span>
-        <p class="note-tags"><%= JSON.stringify(note.tagInput) %></p>
-        <ul>
-          <% note.tagInput.forEach(tag => { %>
-          <li><%= tag%></li>
-          <%}) %>
-        </ul>
-
-        <a href="/note/<%= note._id%>">Go to note</a>
-      </li>
-      <% }}) %>
-    </ul>
+    <section class="note-section">
+      <ul class="note-item">
+        <% notes.forEach(note => { %> <% if(note.weekNumber ===
+        Number(currentWeek)) {%>
+        <li data-id="<%= note._id %>" class="single-note">
+          <a
+            href="/note/remove/<%= note._id %>"
+            class="material-icons note-delete"
+            >delete</a
+          >
+          <div class="single-note-heading">
+            <span class="note-title"><%= note.headerInput %></span>
+          </div>
+          <div class="note-tags">
+            <ul class="single-tag">
+              <% note.tagInput.forEach(tag => { %>
+              <li><%= tag%></li>
+              <%}) %>
+            </ul>
+          </div>
+          <a href="/note/<%= note._id%>">Go to note</a>
+        </li>
+        <% }}) %>
+      </ul>
+    </section>
     <footer>
       <div class="view-header">
         <h2><%=`Week ${currentWeek}` %></h2>

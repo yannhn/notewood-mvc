@@ -7,17 +7,18 @@
     <button class="material-icons select-view-button">menu</button>
   </nav>
   <div class="select-view">
+    <div class="select-view-close">
+      <button type="button" class="material-icons select-view-close">
+        close
+      </button>
+    </div>
     <ul>
-      <div class="select-view-close">
-        <button type="button" class="material-icons select-view-close">
-          close
-        </button>
-      </div>
       <div class="select-view-link">
         <li><a href="/">Go to home</a></li>
         <li><a href="/currentWeek">Go to current week</a></li>
         <li><a href="/archive">Go to archive</a></li>
       </div>
+      <h4>Select week</h4>
       <div class="select-view-week">
         <% yearWeek.forEach((year) => { %> <% if(year === Number(currentWeek)) {
         %>

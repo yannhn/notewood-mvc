@@ -7,19 +7,35 @@
   <body>
     <%- include('./partials/header.ejs', {yearWeek: yearWeek, currentWeek:
     currentWeek}) %> <% groupedNotesArray.forEach(note => { %>
-    <div class="archive-week">
-      <h2><%= `Week ${note.date}` %></h2>
-      <h3><%= note.tagInput %></h3>
-    </div>
-    <% for(let item of note.notes) { %>
-    <ul class="note-item">
-      <li data-id="<%= item._id %>">
-        <div><%= item.headerInput %></div>
-        <div><%= item.tagInput %></div>
-        <a href="/note/<%= item._id%>">Go to note</a>
-        <a href="/note/remove/<%= item._id %>">Remove</a>
-      </li>
-    </ul>
-    <% }}) %>
+    <section class="archive">
+      <div class="archive-week">
+        <h2><%= `Week ${note.date}` %></h2>
+        <h3><%= note.tagInput %></h3>
+      </div>
+      <% for(let item of note.notes) { %>
+      <section class="note-section">
+        <ul class="note-item">
+          <li data-id="<%= item._id %>" class="single-note">
+            <a
+              href="/note/remove/<%= item._id %>"
+              class="material-icons note-delete"
+              >delete</a
+            >
+            <div class="single-note-heading">
+              <span><%= item.headerInput %></span>
+            </div>
+            <div class="note-tags">
+              <ul class="single-tag">
+                <% item.tagInput.forEach(tag => { %>
+                <li><%= tag%></li>
+                <%}) %>
+              </ul>
+            </div>
+            <a href="/note/<%= item._id%>">Go to note</a>
+          </li>
+        </ul>
+      </section>
+      <% }}) %>
+    </section>
   </body>
 </html>

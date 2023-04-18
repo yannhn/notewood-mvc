@@ -40,6 +40,7 @@
         align-items: center;
         border-radius: 5px;
         font-weight: bold;
+        transition: 0.5s;
 
         &:hover {
           background: #f1efee;
@@ -47,11 +48,11 @@
         }
 
         &:last-child {
-          background: #262730;
+          background: #337ea9;
           color: white;
-
+          transition: 0.5s;
           &:hover {
-            background: #191a21;
+            background: #286487;
           }
         }
 

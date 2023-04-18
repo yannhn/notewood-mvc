@@ -11,9 +11,6 @@ function ready(callback) {
 
 function init() {
   console.log("READY");
-
-  View.viewSelect;
-  Modal.modal;
 }
 
 ready(init);

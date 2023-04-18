@@ -14,7 +14,7 @@ module.exports = {
   getIndex: async (req, res) => {
     let yearWeek = [];
 
-    for (let i = 0; i <= 52; i++) {
+    for (let i = 1; i <= 52; i++) {
       yearWeek.push(i);
     }
     try {

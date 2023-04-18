@@ -9,7 +9,7 @@ moment.updateLocale("en", {
 
 let yearWeek = [];
 
-for (let i = 0; i <= 52; i++) {
+for (let i = 1; i <= 52; i++) {
   yearWeek.push(i);
 }
 
@@ -44,8 +44,6 @@ module.exports = {
   },
 
   getTargetWeek: async (req, res) => {
-    // const week = moment(req.body.weekNumber).format("w");
-
     const id = req.params.id;
     const week = req.params.week;
 
@@ -120,7 +118,7 @@ module.exports = {
         notes: notes,
         moment: moment,
         idNote: id,
-        // weekNumber: moment(req.body.weekNumber).format("w"),
+
         groupedNotesArray,
         yearWeek,
         currentWeek,
@@ -150,8 +148,6 @@ module.exports = {
         .filter((substring) => substring !== ""),
     });
 
-    console.log("tagInput", newNote);
-
     try {
       await newNote.save();
 
@@ -180,10 +176,10 @@ module.exports = {
       const result = await Note.findByIdAndUpdate(id, {
         headerInput: req.body.headerInput,
         bodyInput: req.body.bodyInput,
-        // weekNumber: req.body.weekNumber,
+
         tagInput: req.body.tagInput.split(" "),
       });
-      console.log("res:", result);
+
       res.redirect("back");
     } catch (err) {
       if (err) return res.status(500).send(err);

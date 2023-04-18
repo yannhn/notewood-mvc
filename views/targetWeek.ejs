@@ -28,17 +28,29 @@
         </ul>
       </fieldset>
     </form>
-
-    <ul class="note-item">
-      <% notes.forEach(note => { %> <% if(note.weekNumber === Number(week)) {%>
-      <li data-id="<%= note._id %>" class="single-note">
-        <a href="/note/remove/<%= note._id %>" class="material-icons">delete</a>
-        <div><%= note.headerInput %></div>
-        <div><%= JSON.stringify(note.tagInput) %></div>
-        <a href="/note/<%= note._id%>">Go to note</a>
-      </li>
-      <% }}) %>
-    </ul>
+    <section class="note-section">
+      <ul class="note-item">
+        <% notes.forEach(note => { %> <% if(note.weekNumber === Number(week))
+        {%>
+        <li data-id="<%= note._id %>" class="single-note">
+          <a
+            href="/note/remove/<%= note._id %>"
+            class="material-icons note-delete"
+            >delete</a
+          >
+          <span><%= note.headerInput %></span>
+          <div class="note-tags">
+            <ul class="single-tag">
+              <% note.tagInput.forEach(tag => { %>
+              <li><%= tag%></li>
+              <%}) %>
+            </ul>
+          </div>
+          <a href="/note/<%= note._id%>">Go to note</a>
+        </li>
+        <% }}) %>
+      </ul>
+    </section>
     <footer>
       <div class="view-header">
         <h2><%=`Week ${week}` %></h2>

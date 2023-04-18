@@ -8,12 +8,14 @@
       margin: 0 1em;
       label {
         padding: 0.4em 1em;
-        border: 1px solid black;
+        border: 1px solid #262730;
         cursor: pointer;
-
+        border-radius: 5px;
+        color: #262730;
+        transition: 0.3s;
         &:hover {
-          background: black;
-          color: white;
+          background-color: #262730;
+          color: #f1efee;
         }
       }
 

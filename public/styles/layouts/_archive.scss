@@ -1,6 +1,10 @@
-.archive-week {
-  padding: 0 1em;
-  h2 {
-    border-bottom: 1px solid #f2f2f2;
+.archive {
+  display: flex;
+  flex-direction: column;
+  .archive-week {
+    padding: 0 1em;
+    h2 {
+      border-bottom: 1px solid #f2f2f2;
+    }
   }
 }
