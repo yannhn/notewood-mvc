@@ -11,18 +11,27 @@
     <dialog class="modal">
       <form action="/note/newNote" method="POST" class="noteForm">
         <button type="button" class="material-icons close-modal">close</button>
-        <label for="headerInput">Input header</label>
-        <input type="text" id="headerInput" name="headerInput" required />
-        <label for="bodyInput">Input text</label>
+        <label for="headerInput">Title</label>
+        <input
+          type="text"
+          id="headerInput"
+          name="headerInput"
+          required
+          placeholder="Enter the title of your note..."
+        />
+        <label for="bodyInput">Note</label>
         <textarea
           name="bodyInput"
           id="bodyInput"
           cols="30"
           rows="10"
+          placeholder="Enter your note..."
           required
         ></textarea>
 
-        <label for="tagInput" class="label">Press space to split tags</label>
+        <label for="tagInput" class="label"
+          >Tags (split your tags by pressing space)</label
+        >
         <input
           type="text"
           id="tagInput"
@@ -34,12 +43,11 @@
 
         <label for="weekNumber">Input date</label>
         <input type="date" id="weekNumber" name="weekNumber" />
-        <button type="submit">submit</button>
+        <button type="submit">Add note</button>
       </form>
     </dialog>
     <form class="search-form" method="POST">
       <fieldset class="filter-tags">
-        <legend>Click tags to search</legend>
         <ul>
           <li>
             <% fullTagsArray.forEach(item => { %>
@@ -78,7 +86,7 @@
               <%}) %>
             </ul>
           </div>
-          <a href="/note/<%= note._id%>">Go to note</a>
+          <a href="/note/<%= note._id%>" class="goto-note">Go to note</a>
         </li>
         <% }}) %>
       </ul>

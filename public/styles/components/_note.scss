@@ -62,6 +62,8 @@
         list-style: none;
         padding: 0;
         display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
         gap: 1em;
 
         li {
@@ -80,6 +82,32 @@
 
     a {
       text-decoration: none;
+      text-align: center;
+      color: #262730;
+      border: 1px solid black;
+      border-radius: 5px;
+      border: none;
+    }
+
+    .goto-note {
+      color: #262730;
+      width: fit-content;
+      display: block;
+      margin: 0 auto;
+
+      background: #337ea9;
+      border: none;
+      color: white;
+      font-weight: bold;
+      border-radius: 5px;
+      padding: 0.2em 0.6em;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-top: 1em;
+
+      &:hover {
+        background: #286487;
+      }
     }
 
     .archive-week {

@@ -9,25 +9,37 @@
     currentWeek}) %>
 
     <section data-id="<%= notes._id %>" class="detail-note">
-      <h3 class="detail-note-title"><%= notes.headerInput %></h3>
-      <p class="detail-body"><%= notes.bodyInput %></p>
-      <ul class="detail-tags">
-        <% notes.tagInput.forEach((tag) => { %>
-        <li class="detail-note-single-tag"><%= tag %></li>
-        <% }) %>
-      </ul>
-      <!-- <button class="open-modal">Edit</button> -->
       <div class="detail-note-options">
-        <button class="material-icons open-modal">edit</button>
-        <a href="/note/remove/<%= notes._id %>" class="material-icons"
-          >delete</a
-        >
-        <a href="/currentWeek">go to current Week</a>
+        <div>
+          <% if(notes.weekNumber === Number(currentWeek)) { %>
+          <a href="/currentWeek">go back</a>
+          <% } else { %>
+          <a href="/targetWeek/<%= notes.weekNumber %>">go back</a>
+          <% } %>
+        </div>
+        <div>
+          <button class="material-icons open-modal">edit</button>
+          <a href="/note/remove/<%= notes._id %>" class="material-icons"
+            >delete</a
+          >
+        </div>
+      </div>
+      <div class="detail-note-content">
+        <h3 class="detail-note-title"><%= notes.headerInput %></h3>
+        <p class="detail-body"><%= notes.bodyInput %></p>
+        <div class="detail-note-tags">
+          <ul class="detail-note-single-tag">
+            <% notes.tagInput.forEach((tag) => { %>
+            <li><%= tag %></li>
+            <% }) %>
+          </ul>
+        </div>
       </div>
     </section>
 
     <dialog class="modal">
       <form action="/note/<%= notes._id %>?_method=PUT" method="POST">
+        <button type="button" class="material-icons close-modal">close</button>
         <label for="headerInput">Input header</label>
         <input
           type="text"
@@ -44,14 +56,18 @@
           placeholder="<%= notes.bodyInput%>"
         ></textarea>
         <label for="tagInput">Input tags</label>
-        <input type="text" id="tagInput" name="tagInput" />
-        <button type="submit">submit</button>
-        <button type="button" class="close-modal">cancel</button>
+        <input
+          type="text"
+          id="tagInput"
+          name="tagInput"
+          placeholder="<%= notes.tagInput%>"
+        />
+        <button type="submit">Save changes</button>
       </form>
     </dialog>
     <footer>
       <div class="view-header">
-        <h2><%=`Week ${currentWeek}` %></h2>
+        <h2><%=`Week ${notes.weekNumber}` %></h2>
       </div>
     </footer>
   </body>

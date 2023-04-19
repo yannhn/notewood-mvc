@@ -9,7 +9,6 @@
     currentWeek}) %> <% if(fullTagsArray.length > 0) {%>
     <form class="search-form" method="POST">
       <fieldset class="filter-tags">
-        <legend>Click tags to search</legend>
         <ul>
           <li>
             <%fullTagsArray.forEach(item => { %>
@@ -38,7 +37,9 @@
             class="material-icons note-delete"
             >delete</a
           >
-          <span><%= note.headerInput %></span>
+          <div class="single-note-heading">
+            <span><%= note.headerInput %></span>
+          </div>
           <div class="note-tags">
             <ul class="single-tag">
               <% note.tagInput.forEach(tag => { %>
@@ -46,7 +47,7 @@
               <%}) %>
             </ul>
           </div>
-          <a href="/note/<%= note._id%>">Go to note</a>
+          <a href="/note/<%= note._id%>" class="goto-note">Go to note</a>
         </li>
         <% }}) %>
       </ul>

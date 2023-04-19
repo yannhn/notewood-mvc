@@ -88,37 +88,19 @@ module.exports = {
         return acc;
       }, {});
 
-      //   Loop through grouped emails
       const groupedNotesArray = Object.keys(groupedNotes)
         .map((key) => {
           return {
             date: key,
-
             notes: groupedNotes[key],
-            // .sort((a, b) => {
-            // console.log("groupedNotes[key]", groupedNotes[key]),
-            // console.log("A:", a.weekNumber);
-            // console.log("B", b.weekNumber);
-            // return b.weekNumber - a.weekNumber;
-            // if (a.weekNumber < b.weekNumber) {
-            //   return 1;
-            // }
-            // if (a.weekNumber > b.weekNumber) {
-            //   return -1;2
-            // }
-            // return 0;
-            // }),
           };
         })
         .sort((a, b) => b.date - a.date);
-
-      // groupedNotesArray.sort((a, b) => b.date - a.date);
 
       res.render("archive.ejs", {
         notes: notes,
         moment: moment,
         idNote: id,
-
         groupedNotesArray,
         yearWeek,
         currentWeek,
@@ -157,17 +139,6 @@ module.exports = {
       res.redirect("/");
     }
   },
-  // getEdit: async (req, res) => {
-  //   const id = req.params.id;
-  //   console.log(id);
-
-  //   try {
-  //     const notes = await Note.find();
-  //     res.render("index.ejs", { notes: notes, idNote: id });
-  //   } catch (err) {
-  //     if (err) return res.status(500).send(err);
-  //   }
-  // },
 
   editNote: async (req, res) => {
     const id = req.params.id;
@@ -176,7 +147,6 @@ module.exports = {
       const result = await Note.findByIdAndUpdate(id, {
         headerInput: req.body.headerInput,
         bodyInput: req.body.bodyInput,
-
         tagInput: req.body.tagInput.split(" "),
       });
 
@@ -204,7 +174,7 @@ module.exports = {
     const id = req.params.id;
     try {
       await Note.findByIdAndDelete(id);
-      res.redirect("/currentWeek");
+      res.redirect("back");
     } catch (err) {
       if (err) return res.status(500).send(err);
     }
