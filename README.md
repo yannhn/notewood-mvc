@@ -2,11 +2,9 @@
 
 Notewood is a simple note taking app which focuses on mindful note taking. This is achieved by always focusing on the current week and only be available to add notes to it. Relevant are also the tags, which can be added to each note. Through this, the topics of the week should always be recognizable at a glance. Past weeks can still be called up easily and the notes can be edited.
 
-**Link to project:**
-
-![alt tag]()
-
 ## How It's Made:
+
+**At the moment the app is still in the MVP-stage.**
 
 **Tech used:** HTML, Sass, JavaScript, node.js, express, MongoDB, mongoose, ejs
 
