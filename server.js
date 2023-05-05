@@ -2,7 +2,7 @@
 const express = require("express");
 const connectDB = require("./config/database");
 const app = express();
-const PORT = 8020;
+const PORT = process.env.PORT || 8000;
 const methodOverride = require("method-override");
 const Note = require("./models/note");
 require("dotenv").config({ path: "./config/.env" });
@@ -25,6 +25,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/", homeRoutes);
 app.use("/note", noteRoutes);
 
-app.listen(PORT, () => {
+app.listen(PORT, "0.0.0.0", () => {
   console.log(`Server is running on port ${PORT}`);
 });
