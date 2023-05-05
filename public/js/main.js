@@ -1,5 +1,5 @@
-import * as Modal from "./components/modal.js";
-import * as View from "./components/View.js";
+// import * as Modal from "./components/modal.js";
+// import * as View from "./components/View.js";
 
 function ready(callback) {
   if (document.readyState === "loading") {
