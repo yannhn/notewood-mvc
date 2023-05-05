@@ -2,12 +2,15 @@
 const express = require("express");
 const connectDB = require("./config/database");
 const app = express();
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 3000;
 const methodOverride = require("method-override");
 const Note = require("./models/note");
 require("dotenv").config({ path: "./config/.env" });
 
 connectDB();
+
+// app.use(express.static("public"));
+app.use(express.static(__dirname + "/public"));
 
 // choose routes
 const homeRoutes = require("./routes/home");
@@ -17,8 +20,6 @@ const noteRoutes = require("./routes/note");
 app.use(methodOverride("_method"));
 
 app.set("view engine", "ejs");
-// app.use(express.static("public"));
-app.use(express.static(__dirname + "/public"));
 
 app.use(express.urlencoded({ extended: true }));
 

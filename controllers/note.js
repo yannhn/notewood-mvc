@@ -119,8 +119,6 @@ module.exports = {
     }
   },
   createNote: async (req, res) => {
-    console.log(req);
-
     const newNote = new Note({
       headerInput: req.body.headerInput,
       bodyInput: req.body.bodyInput,
@@ -142,7 +140,7 @@ module.exports = {
 
   editNote: async (req, res) => {
     const id = req.params.id;
-    console.log("req.", req);
+
     try {
       const result = await Note.findByIdAndUpdate(id, {
         headerInput: req.body.headerInput,
