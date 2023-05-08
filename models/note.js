@@ -19,6 +19,10 @@ const noteSchema = new mongoose.Schema({
     type: Number,
     default: currentWeek,
   },
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+  },
 });
 
 module.exports = mongoose.model("note", noteSchema, "notes");
