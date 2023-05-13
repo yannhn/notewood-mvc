@@ -28,14 +28,17 @@
       border: none;
       box-sizing: border-box;
       width: calc(100% - 60px);
-      border-radius: 5px;
       font-family: Arial, Helvetica, sans-serif;
+    }
+
+    label {
+      text-align: center;
     }
   }
 
   .close-modal {
     background: none;
-    border-radius: 5px;
+
     border: none;
     background: #f45050;
     color: #fff;
@@ -45,8 +48,8 @@
     transition: 0.3s;
 
     &:hover {
-      color: #f45050;
-      background: #fff;
+      color: #fff;
+      background: #f22c2c;
     }
   }
 
@@ -54,7 +57,7 @@
     &:last-child {
       margin-top: 1em;
       padding: 0.2em 0.6em;
-      border-radius: 5px;
+
       border: none;
       background: #57a773;
       color: #fff;
@@ -63,8 +66,8 @@
       transition: 0.3s;
 
       &:hover {
-        color: #73c3af;
-        background: #fff;
+        color: #fff;
+        background: #4d9366;
       }
     }
   }

@@ -36,7 +36,7 @@
           type="text"
           id="tagInput"
           name="tagInput"
-          placeholder="Add a tag..."
+          placeholder="tag1 tag2 tag3..."
           autocomplete="off"
           class="tag-input"
         />
@@ -46,50 +46,52 @@
         <button type="submit">Add note</button>
       </form>
     </dialog>
-    <form class="search-form" method="POST">
-      <fieldset class="filter-tags">
-        <ul>
-          <li>
-            <% fullTagsArray.forEach(item => { %>
-            <label for="label-button" class="label-button" value="<%= item %>"
-              ><%= item %></label
+    <section class="content-area">
+      <form class="search-form" method="POST">
+        <fieldset class="filter-tags">
+          <ul>
+            <li>
+              <% fullTagsArray.forEach(item => { %>
+              <label for="label-button" class="label-button" value="<%= item %>"
+                ><%= item %></label
+              >
+              <input
+                type="checkbox"
+                id="label-button"
+                class="filter-checkbox"
+                name="searchTags"
+                value="<%= item %>"
+              />
+              <% }) %>
+            </li>
+          </ul>
+        </fieldset>
+      </form>
+      <section class="note-section">
+        <ul class="note-item">
+          <% notes.forEach(note => { %> <% if(note.weekNumber ===
+          Number(currentWeek)) {%>
+          <li data-id="<%= note._id %>" class="single-note">
+            <a
+              href="/note/remove/<%= note._id %>"
+              class="material-icons note-delete"
+              >delete</a
             >
-            <input
-              type="checkbox"
-              id="label-button"
-              class="filter-checkbox"
-              name="searchTags"
-              value="<%= item %>"
-            />
-            <% }) %>
+            <div class="single-note-heading">
+              <span class="note-title"><%= note.headerInput %></span>
+            </div>
+            <div class="note-tags">
+              <ul class="single-tag">
+                <% note.tagInput.forEach(tag => { %>
+                <li><%= tag%></li>
+                <%}) %>
+              </ul>
+            </div>
+            <a href="/note/<%= note._id%>" class="goto-note">Go to note</a>
           </li>
+          <% }}) %>
         </ul>
-      </fieldset>
-    </form>
-    <section class="note-section">
-      <ul class="note-item">
-        <% notes.forEach(note => { %> <% if(note.weekNumber ===
-        Number(currentWeek)) {%>
-        <li data-id="<%= note._id %>" class="single-note">
-          <a
-            href="/note/remove/<%= note._id %>"
-            class="material-icons note-delete"
-            >delete</a
-          >
-          <div class="single-note-heading">
-            <span class="note-title"><%= note.headerInput %></span>
-          </div>
-          <div class="note-tags">
-            <ul class="single-tag">
-              <% note.tagInput.forEach(tag => { %>
-              <li><%= tag%></li>
-              <%}) %>
-            </ul>
-          </div>
-          <a href="/note/<%= note._id%>" class="goto-note">Go to note</a>
-        </li>
-        <% }}) %>
-      </ul>
+      </section>
     </section>
     <footer>
       <div class="view-header">

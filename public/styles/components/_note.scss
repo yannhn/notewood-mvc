@@ -1,16 +1,14 @@
 @use "../config/breakpoints";
 
 .note-section {
-  display: flex;
-  justify-content: center;
-  flex-flow: row wrap;
-
   .note-item {
-    list-style: none;
+    margin: 0;
     padding: 0;
+    list-style: none;
+
+    padding: 0 2em;
     display: flex;
     flex-direction: column;
-    align-items: center;
 
     .single-note-heading {
       margin-right: 2em;
@@ -20,22 +18,28 @@
     }
 
     @include breakpoints.desktop {
-      flex-flow: row wrap;
+      width: 100%;
     }
 
     .single-note {
-      // background-color: #fcfbf7;
-      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+        rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
       display: flex;
       flex-direction: column;
-      border: 1px solid black;
-      border-radius: 5px;
-      margin: 1em;
+
+      margin: 0 0 1em 0;
       padding: 1em;
       position: relative;
+      transition: 0.3s;
+      &:hover {
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+          rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+      }
 
-      @include breakpoints.desktop {
-        max-width: fit-content;
+      .single-note-heading {
+        span {
+          margin: 0.2em 1em 0.2em 0.2em;
+        }
       }
 
       .note-delete {
@@ -43,7 +47,7 @@
         top: 0;
         right: 0;
         background-color: #f1efee;
-        border-radius: 5px;
+
         padding: 0.2em;
         margin: 0.2em 0.2em 0.2em 1em;
         color: #262730;
@@ -63,8 +67,8 @@
         padding: 0;
         display: flex;
         flex-flow: row wrap;
-        justify-content: center;
-        gap: 1em;
+        justify-content: flex-start;
+        gap: 0.2em;
 
         li {
           display: flex;
@@ -73,8 +77,7 @@
 
           background: #f1efee;
           color: #262730;
-          border: 1px solid black;
-          border-radius: 5px;
+
           border: none;
         }
       }
@@ -84,8 +87,7 @@
       text-decoration: none;
       text-align: center;
       color: #262730;
-      border: 1px solid black;
-      border-radius: 5px;
+
       border: none;
     }
 
@@ -93,17 +95,16 @@
       color: #262730;
       width: fit-content;
       display: block;
-      margin: 0 auto;
+      margin-right: auto;
 
       background: #337ea9;
       border: none;
       color: white;
       font-weight: bold;
-      border-radius: 5px;
+
       padding: 0.2em 0.6em;
       cursor: pointer;
       transition: 0.3s;
-      margin-top: 1em;
 
       &:hover {
         background: #286487;

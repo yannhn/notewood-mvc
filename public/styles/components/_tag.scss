@@ -1,4 +1,5 @@
 .filter-tags {
+  margin: 1em;
   border: none;
 
   legend {
@@ -6,18 +7,35 @@
     font-weight: bold;
   }
   ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
     li {
       display: flex;
       flex-flow: row wrap;
-      gap: 1em;
-
+      gap: 0.2em;
       label {
-        background: none;
-        border: 1px solid #262730;
         padding: 0.2em 1em;
+        border: 1px solid #262730;
+        cursor: pointer;
 
         color: #262730;
+
+        transition: 0.3s;
+        &:hover {
+          background-color: #262730;
+          color: #f1efee;
+        }
+      }
+
+      input {
+        display: none;
       }
     }
   }
+}
+
+.active {
+  background: black;
+  color: white;
 }
