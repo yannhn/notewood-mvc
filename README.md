@@ -2,12 +2,13 @@
 
 notewood is a mixture of a note app and a diary app. It revolves around making an awareness of one's own weekly notes. This is achieved by always focusing on the current week and only be available to add notes to it. Relevant are also the tags, which can be added to each note. Through this, the topics of the week should always be recognizable at a glance. Past weeks can still be called up easily and the notes can be edited. The title of the app is a reference to the German saying I can't see the forest for the trees.
 
+**Link to project:**
+
 <p float="left">
   <img src="./config/img/currentWeek.png" width="150" alt="notewood_currentWeek"/>
   <img src="./config/img/targetWeek.png" width="150" alt="notewood_targetWeek"/>
   <img src="./config/img/drawer.png" width="150" alt="notewood_drawer"/> 
   <img src="./config/img/archive.png" width="150" alt="notewood_archive"/>
-  
 </p>
 
 ## How It's Made:
