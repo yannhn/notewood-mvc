@@ -1,6 +1,6 @@
 @use "./components/modal";
 @use "./components/note";
-@use "./components/label";
+// @use "./components/label";
 @use "./components/drawer";
 @use "./components/detailNote";
 @use "./components/tag";
@@ -12,8 +12,17 @@
 @use "./layouts/archive";
 @use "./layouts/index";
 
+html,
+body {
+  height: 100%;
+}
+
 body {
   font-family: Arial, Helvetica, sans-serif;
+
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
 }
 
 .hidden {

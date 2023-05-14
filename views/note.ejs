@@ -25,8 +25,6 @@
         </div>
       </div>
       <div class="detail-note-content">
-        <h3 class="detail-note-title"><%= notes.headerInput %></h3>
-        <p class="detail-body"><%= notes.bodyInput %></p>
         <div class="detail-note-tags">
           <ul class="detail-note-single-tag">
             <% notes.tagInput.forEach((tag) => { %>
@@ -34,6 +32,8 @@
             <% }) %>
           </ul>
         </div>
+        <h3 class="detail-note-title"><%= notes.headerInput %></h3>
+        <p class="detail-body"><%= notes.bodyInput %></p>
       </div>
     </section>
 

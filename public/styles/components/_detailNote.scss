@@ -1,7 +1,7 @@
 .detail-note {
   display: flex;
   flex-direction: column;
-  padding: 1em 2em;
+  padding: 0 2em;
 
   h3 {
     text-align: center;
@@ -11,7 +11,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 1em;
+    flex-flow: row wrap;
+    margin-bottom: 0.4em;
+    padding-bottom: 1em;
+    border-bottom: 1px solid #262730;
 
     div {
       &:first-child {
@@ -26,7 +29,7 @@
           border: none;
           color: white;
           font-weight: bold;
-          border-radius: 5px;
+
           padding: 0.2em 0.6em;
           cursor: pointer;
           transition: 0.3s;
@@ -40,7 +43,7 @@
       a,
       button {
         background-color: #f1efee;
-        border-radius: 5px;
+
         padding: 0.2em;
         cursor: pointer;
 
@@ -49,8 +52,7 @@
         text-decoration: none;
         text-align: center;
         color: #262730;
-        border: 1px solid black;
-        border-radius: 5px;
+
         border: none;
         &:hover {
           background-color: #262730;
@@ -68,6 +70,7 @@
 
   .detail-note-tags {
     margin: 1em 0 0 0;
+    margin-right: auto;
 
     ul {
       list-style: none;
@@ -81,11 +84,8 @@
         display: flex;
         flex-flow: row wrap;
         padding: 0.2em 0.6em;
-
         background: #f1efee;
         color: #262730;
-        border: 1px solid black;
-        border-radius: 5px;
         border: none;
       }
     }

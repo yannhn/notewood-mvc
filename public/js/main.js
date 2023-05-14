@@ -6,10 +6,6 @@ function ready(callback) {
   }
 }
 
-function init() {
-  console.log("READY");
-}
-
 class Modal {
   constructor() {
     this._openModalButton = document.querySelector(".open-modal");
@@ -78,8 +74,33 @@ class View {
   }
 }
 
-const viewSelect = new View();
+// const viewSelect = new View();
 
-const modal = new Modal();
+// const modal = new Modal();
+
+const header = document.querySelector("header");
+
+// window.addEventListener("scroll", () => {
+//   const distanceScrolled = document.documentElement.scrollTop;
+//   console.log(distanceScrolled);
+//   if (distanceScrolled > 50) {
+//     header.classList.add("scroll-border");
+//   } else {
+//     header.classList.remove("scroll-border");
+//   }
+// });
+
+function init() {
+  new View();
+  new Modal();
+  window.addEventListener("scroll", () => {
+    const distanceScrolled = document.documentElement.scrollTop;
+    if (distanceScrolled > 50) {
+      header.classList.add("scroll-border");
+    } else {
+      header.classList.remove("scroll-border");
+    }
+  });
+}
 
 ready(init);
