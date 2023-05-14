@@ -10,6 +10,11 @@ header {
   padding: 0 1em;
   z-index: 1;
 
+  .select-view-button,
+  .select-view-close {
+    cursor: pointer;
+  }
+
   .logo-container {
     display: flex;
     align-items: center;

@@ -869,6 +869,10 @@ header {
   padding: 0 1em;
   z-index: 1;
 }
+header .select-view-button,
+header .select-view-close {
+  cursor: pointer;
+}
 header .logo-container {
   display: flex;
   align-items: center;
