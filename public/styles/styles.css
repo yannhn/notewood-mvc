@@ -327,7 +327,6 @@
 .filter-tags ul li label {
   padding: 0.2em 1em;
   border: 1px solid #262730;
-  cursor: pointer;
   color: #262730;
   transition: background-color 0.3s;
 }
