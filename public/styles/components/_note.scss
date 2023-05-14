@@ -30,7 +30,7 @@
       margin: 0 0 1em 0;
       padding: 1em;
       position: relative;
-      transition: 0.3s;
+      transition: box-shadow 0.3s;
       &:hover {
         box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
           rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
@@ -51,7 +51,7 @@
         padding: 0.2em;
         margin: 0.2em 0.2em 0.2em 1em;
         color: #262730;
-        transition: 0.3s;
+        transition: box-shadow 0.3s;
         &:hover {
           background-color: #262730;
           color: #f1efee;
@@ -104,7 +104,7 @@
 
       padding: 0.2em 0.6em;
       cursor: pointer;
-      transition: 0.3s;
+      transition: box-shadow 0.3s;
 
       &:hover {
         background: #286487;

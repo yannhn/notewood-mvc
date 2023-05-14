@@ -25,17 +25,17 @@
           display: block;
           margin: 0 auto;
 
-          background: #337ea9;
+          background-color: #337ea9;
           border: none;
           color: white;
           font-weight: bold;
 
           padding: 0.2em 0.6em;
           cursor: pointer;
-          transition: 0.3s;
+          transition: background-color 0.3s;
 
           &:hover {
-            background: #286487;
+            background-color: #286487;
           }
         }
       }

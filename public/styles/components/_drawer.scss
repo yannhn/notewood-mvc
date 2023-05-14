@@ -42,7 +42,7 @@
         color: #37352f;
         font-weight: bold;
         display: inline-block;
-        transition: 0.3s;
+        transition: background-color 0.3s;
         padding: 0.1em 0.6em;
 
         &:hover {
@@ -72,7 +72,7 @@
         font-weight: bold;
         display: inline-block;
         padding: 0.4em;
-        transition: 0.3s;
+        transition: background-color 0.3s;
 
         &:hover {
           background-color: #e9e8e8;
