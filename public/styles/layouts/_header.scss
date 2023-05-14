@@ -8,8 +8,6 @@ header {
   justify-content: space-between;
   flex-flow: row wrap;
   padding: 0 1em;
-  border-bottom: 1px solid black;
-  margin-bottom: 2em;
   z-index: 1;
 
   .logo-container {
@@ -34,4 +32,8 @@ header {
       color: #262730;
     }
   }
+}
+
+.scroll-border {
+  border-bottom: 1px solid black;
 }

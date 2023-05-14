@@ -867,8 +867,6 @@ header {
   justify-content: space-between;
   flex-flow: row wrap;
   padding: 0 1em;
-  border-bottom: 1px solid black;
-  margin-bottom: 2em;
   z-index: 1;
 }
 header .logo-container {
@@ -889,6 +887,10 @@ header nav button {
   background: none;
   border: none;
   color: #262730;
+}
+
+.scroll-border {
+  border-bottom: 1px solid black;
 }
 
 footer {
@@ -917,7 +919,6 @@ footer .view-header button {
   border: none;
   color: white;
   font-weight: bold;
-  border-radius: 5px;
   padding: 0.2em 0.6em;
   cursor: pointer;
   transition: 0.3s;
